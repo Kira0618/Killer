@@ -149,7 +149,7 @@ def process_cards(message, ko, total, stats):
         # -----------------------------
         # RESULT NORMALIZE
         # -----------------------------
-        if "succeeded" in last:
+        if "succeeded" in last or "Thank" in last or "redirectUrl" in last:
             msg = f'''   
 𝐂𝐀𝐑𝐃: <code>{cc}</code>\n\n𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐞: <code>Transaction was successful 🔥</code>
 
@@ -175,7 +175,7 @@ def process_cards(message, ko, total, stats):
             bot.reply_to(message, msg)
             result = "Insufficient Funds"
             lowfund[0] += 1
-        elif "requires_action" in last:
+        elif "requires_action" in last or "nextActio" in last:
             msg = f'''   
 𝐂𝐀𝐑𝐃: <code>{cc}</code>\n\n𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐞: <code>3D requires_action 🔥</code>
 
