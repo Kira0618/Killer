@@ -3407,8 +3407,10 @@ def go17(cc_input: str) -> str:
             headers=headers,
             data=data,
         )
-        result2 = response.text
-        print(result2)
+        if "errors" in response.text:
+            result2 = response.json()['errors']
+        else:
+            result2 = response.text
             
     except Exception as e:
         print(f"Error occurred: {e}")
@@ -3505,8 +3507,10 @@ def go18(cc_input: str) -> str:
             headers=headers,
             data=data,
         )
-        result2 = response.text
-        print(result2)
+        if "errors" in response.text:
+            result2 = response.json()['errors']
+        else:
+            result2 = response.text
             
     except Exception as e:
         print(f"Error occurred: {e}")
@@ -3605,8 +3609,10 @@ def go19(cc_input: str) -> str:
             headers=headers,
             data=data,
         )
-        result2 = response.text
-        print(result2)
+        if "errors" in response.text:
+            result2 = response.json()['errors']
+        else:
+            result2 = response.text
             
     except Exception as e:
         print(f"Error occurred: {e}")
