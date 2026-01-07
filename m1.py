@@ -3407,14 +3407,8 @@ def go17(cc_input: str) -> str:
             headers=headers,
             data=data,
         )
-        if 'errors' in response.text:
-            result2 = response.json()['errors']                      	
-            return result2 #stop
-            	
-        else:
-            print("❌ Payment no need Rq4. Stopping here.")
-            result2 = response.text
-            return result2  #stop
+        result2 = response.text
+        print(result2)
             
     except Exception as e:
         print(f"Error occurred: {e}")
@@ -3511,14 +3505,8 @@ def go18(cc_input: str) -> str:
             headers=headers,
             data=data,
         )
-        if 'errors' in response.text:
-            result2 = response.json()['errors']                      	
-            return result2 #stop
-            	
-        else:
-            print("❌ Payment no need Rq4. Stopping here.")
-            result2 = response.text
-            return result2  #stop
+        result2 = response.text
+        print(result2)
             
     except Exception as e:
         print(f"Error occurred: {e}")
@@ -3617,14 +3605,8 @@ def go19(cc_input: str) -> str:
             headers=headers,
             data=data,
         )
-        if 'errors' in response.text:
-            result2 = response.json()['errors']                      	
-            return result2 #stop
-            	
-        else:
-            print("❌ Payment no need Rq4. Stopping here.")
-            result2 = response.text
-            return result2  #stop
+        result2 = response.text
+        print(result2)
             
     except Exception as e:
         print(f"Error occurred: {e}")
