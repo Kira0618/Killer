@@ -175,7 +175,7 @@ def process_cards(message, ko, total, stats):
             bot.reply_to(message, msg)
             result = "Insufficient Funds"
             lowfund[0] += 1
-        elif "requires_action" in last or "nextActio" in last:
+        elif "requires_action" in last or "nextAction" in last:
             msg = f'''   
 𝐂𝐀𝐑𝐃: <code>{cc}</code>\n\n𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐞: <code>3D requires_action 🔥</code>
 
