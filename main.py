@@ -193,21 +193,21 @@ def process_cards(message, ko, total, stats):
             with open(SAVE_FILE, "a") as f:
                 f.write(cc + "\n")
             dd[0] += 1
-            result = last
+            result = last   
         else:
           match = re.search(r'"message"\s*:\s*"([^"]+)"', last)
           if match:
           	result = match.group(1)
           	dd[0] += 1
           else:
-          	match = last
+          	match = re.search(r'"errors"\s*:\s*\[(.*?)\]', last)
           	if match:
           		raw = match.group(1)
           		items = re.findall(r'"([^"]+)"', raw)
           		result = " | ".join(items) if items else "Unknown Error - Try Again 🚫"
           		dd[0] += 1
           	else:
-          		result = "Unknown Error - Try Again 🚫"
+          		result = last
           		dd[0] += 1
 
         mes = types.InlineKeyboardMarkup(row_width=1)
